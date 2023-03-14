@@ -1,0 +1,20 @@
+.searchbar{
+    position: relative;
+}
+
+.searchbar__dropdown{
+    margin-top: 2px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    min-width: 100%;
+    max-height: 150px;
+    overflow-y: scroll;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.searchbar__dropdowncontent{
+    padding: 8px 10px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
