@@ -1,0 +1,28 @@
+.main {
+    margin: 0;
+    margin-left: 11%;
+    text-align: left;
+    display: flex;
+    font-size: 15px;
+}
+
+h1 {
+    font-weight: 300;
+    margin-left: 11%;
+}
+
+.summary {
+    flex-basis: 40%;
+    text-align: left;
+}
+
+.socailMediaIcon i {
+    font-size: 1.3rem;
+    margin: 0.1rem;
+}
+
+.socailMediaIcon {
+    text-align: right;
+    margin: 1rem;
+    margin-top: 2rem;
+}
