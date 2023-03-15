@@ -1,0 +1,9 @@
+.card {
+    background-color: #3c948b;
+    margin: 1rem;
+    min-width: 10rem;
+    max-width: 14rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+    border-radius: 0.5rem;
+}

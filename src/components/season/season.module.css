@@ -7,28 +7,3 @@
     text-align: left;
 }
 
-.season h2 {
-    margin: 0;
-    font-weight: 300;
-    font-size: 2rem;
-}
-
-.season div {
-    margin-left: 2rem;
-}
-
-.season img {
-    width: 100%;
-}
-
-.season h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    line-height: 1;
-}
-
-small {
-    font-size: 100%;
-    font-weight: 250;
-    color: #cacaca;
-}

@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-top: solid 1px #ffffffe3;
     font-size: 1rem;
     color: white;
 }
@@ -13,3 +12,10 @@
     margin-left: 0.5rem;
     font-weight: 200;
 }
+/* 
+.moviePosterCardFooter {
+    margin: 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

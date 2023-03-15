@@ -1,17 +1,13 @@
 import React from "react";
 
 import Table from "../../organism/table/Table";
-
+import NavBarEpisode from "../../molecules/navBarEpisode/NavBarEpisode";
 import styles from "./episode.module.css";
 
 function Episode() {
     return (
         <div className={styles.episode}>
-            <nav className={styles.navbar}>
-                <span>S01</span>
-                <span>S02</span>
-                <span>S03</span>
-            </nav>
+            <NavBarEpisode />
             <h2>
                 <span>Season 1</span>
             </h2>

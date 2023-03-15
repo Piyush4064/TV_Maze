@@ -1,0 +1,14 @@
+.infoCard {
+    padding-left: 1rem;
+}
+.infoCard h2 {
+    font-weight: 250;
+    font-size: 1.3rem;
+    margin-left: 0;
+}
+
+a {
+    color: #3c948b;
+    text-decoration: none;
+    cursor: pointer;
+}

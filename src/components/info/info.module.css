@@ -1,0 +1,12 @@
+.main {
+    margin: 0;
+    margin-left: 11%;
+    text-align: left;
+    display: flex;
+    font-size: 15px;
+}
+
+h1 {
+    font-weight: 300;
+    margin-left: 11%;
+}

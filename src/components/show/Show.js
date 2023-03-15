@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../organism/card/Card";
+import ShowCard from "../../organism/showCard/ShowCard";
 
 import styles from "./show.module.css";
 
@@ -8,16 +8,12 @@ function Show() {
         <div>
             <h1>Show</h1>
             <div className={styles.container}>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <ShowCard />
+                <ShowCard />
+                <ShowCard />
+                <ShowCard />
+                <ShowCard />
+                <ShowCard />
             </div>
         </div>
     );
