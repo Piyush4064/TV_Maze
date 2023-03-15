@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../organism/card/Card";
+import PeopleCard from "../../organism/peopleCard/PeopleCard";
 
 import styles from "./people.module.css";
 
@@ -8,11 +8,11 @@ function People() {
         <div>
             <h1>People</h1>
             <div className={styles.container}>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <PeopleCard />
+                <PeopleCard />
+                <PeopleCard />
+                <PeopleCard />
+                <PeopleCard />
             </div>
         </div>
     );

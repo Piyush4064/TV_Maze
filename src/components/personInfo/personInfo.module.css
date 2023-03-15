@@ -1,35 +1,17 @@
-.personInfo {
-    display: grid;
-    width: 80%;
-    margin: 2rem auto;
-    grid-template-columns: 20% 50% 30%;
-    text-align: left;
-}
-
-.personInfo section {
-    width: 15rem;
-}
-.personInfo p {
-    padding-right: 2rem;
-}
-
-.image {
-    /* width: 30%; */
-    /* display: inline; */
-}
-
 h2 {
-    margin-left: 11%;
+    margin-left: 12%;
     font-size: 2.5rem;
+    font-weight: 200;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-left: 13%;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 11%;
 }
+
 .knownForCard {
-    display: block;
-    margin: 0 auto;
-    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

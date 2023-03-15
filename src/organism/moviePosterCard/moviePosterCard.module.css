@@ -19,10 +19,3 @@
     transform: scale(1.1);
     color: white;
 }
-
-.moviePosterCardFooter {
-    margin: 0.15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

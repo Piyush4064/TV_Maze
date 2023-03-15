@@ -1,0 +1,25 @@
+.seasonInfo h2 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.seasonInfo {
+    margin-left: 2rem;
+}
+
+.seasonInfo img {
+    width: 100%;
+}
+
+.seasonInfo h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.seasonInfo small {
+    font-size: 100%;
+    font-weight: 250;
+    color: #cacaca;
+}

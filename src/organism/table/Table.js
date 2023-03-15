@@ -23,8 +23,7 @@ function Table() {
                         <td>Dec 27, 2019</td>
                         <td>Chapter 8: Redemption</td>
                         <td>
-                            <i class="fa-solid fa-star"></i>
-                            8.7
+                            <i class="fa-solid fa-star"></i> 8.7
                         </td>
                         <td>
                             <Icon classes="fa-solid fa-cloud" />
@@ -37,36 +36,33 @@ function Table() {
                         <td>Dec 27, 2019</td>
                         <td>Chapter 8: Redemption</td>
                         <td>
-                            <i class="fa-solid fa-star"></i>
-                            8.7
+                            <i class="fa-solid fa-star"></i> 8.7
                         </td>
                         <td>
                             <Icon classes="fa-solid fa-cloud" />
                             <Icon classes="fa-solid fa-eye" />
                             <Icon classes="fa-solid fa-ban" />
                         </td>
-                    </tr>{" "}
+                    </tr>
                     <tr>
                         <td>1</td>
                         <td>Dec 27, 2019</td>
                         <td>Chapter 8: Redemption</td>
                         <td>
-                            <i class="fa-solid fa-star"></i>
-                            8.7
+                            <i class="fa-solid fa-star"></i> 8.7
                         </td>
                         <td>
                             <Icon classes="fa-solid fa-cloud" />
                             <Icon classes="fa-solid fa-eye" />
                             <Icon classes="fa-solid fa-ban" />
                         </td>
-                    </tr>{" "}
+                    </tr>
                     <tr>
                         <td>1</td>
                         <td>Dec 27, 2019</td>
                         <td>Chapter 8: Redemption</td>
                         <td>
-                            <i class="fa-solid fa-star"></i>
-                            8.7
+                            <i class="fa-solid fa-star"></i> 8.7
                         </td>
                         <td>
                             <Icon classes="fa-solid fa-cloud" />

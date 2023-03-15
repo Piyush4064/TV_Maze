@@ -56,7 +56,9 @@ th {
 }
 
 tr td:last-child {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0.5rem;
 }
 
 tr td:nth-of-type(3) {
