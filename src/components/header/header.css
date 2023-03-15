@@ -12,3 +12,14 @@
     width: 120px;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 600px){
+    .header{
+        flex-direction: column;
+    }
+
+    .header--logo{
+        margin-bottom: 10px;
+    }
+}

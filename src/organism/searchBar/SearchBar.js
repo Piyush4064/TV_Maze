@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Button, Input } from "../../atom";
+import { debounce } from "../../util";
 import "./searchbar.css";
 
 function SearchBar(props) {
-    const onSearch = (event) => {
+
+    const [searchvalue, setSearchValue] = useState("");
+    
+    const onSearchHandler = (event) => {
         const { onSearch } = props;
-        onSearch(event);
+        setSearchValue(event.target.value);
+        onSearch(event.target.value);
     };
+    
+    const onSearch  = useCallback(debounce(onSearchHandler, 1000), []);
+
+    const onSearchClick = (value) => {
+        const {onSearchClick} = props;
+        onSearchClick(value);
+    }
 
     return (
         <div className="searchbar">
@@ -16,17 +28,17 @@ function SearchBar(props) {
                 onChange={(event) => onSearch(event)}
             />
 
-            <Button type="searchbtn">Search</Button>
+            <Button type="searchbtn" onClick={() => onSearchClick(searchvalue)}>Search</Button>
 
-            {/* {props.searchData.length !== 0 && (
+            {props.searchData.length !== 0 && (
                 <div className="searchbar__dropdown">
                     {props.searchData.map((data) => (
-                        <div key={data} className="searchbar__dropdowncontent">
+                        <div key={data} className="searchbar__dropdowncontent" onClick={() => onSearchClick(data)}>
                             {data}
                         </div>
                     ))}
                 </div>
-            )} */}
+            )}
         </div>
     );
 }

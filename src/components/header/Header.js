@@ -3,12 +3,15 @@ import SearchBar from '../../organism/searchBar/SearchBar';
 import './header.css';
 
 function Header() {
-    const [searchData, setSearchData] = React.useState(["Hello 1 ", "Hello 2", "Hello 3", "Hello4", "Hello5", "Hello6","Hello7"]);
+    const [searchData, setSearchData] = React.useState([]);
 
-    const onSearch = (event) => {
-        //api will be called here
-        console.log("Search Clicked");
+    const onSearch = (value) => {
+        console.log(value);
         setSearchData(["Hello1", "Hello2"]);
+    }
+
+    const onSearchClick  = (value) => {
+        console.log(value);
     }
 
   return (
@@ -17,6 +20,7 @@ function Header() {
         <SearchBar 
         searchData = {searchData}
         onSearch = {onSearch}
+        onSearchClick = {onSearchClick }
         />
     </div>
   )
