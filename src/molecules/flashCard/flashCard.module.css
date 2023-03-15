@@ -1,0 +1,14 @@
+.flashCard {
+    background-color: #f7f7f7;
+    flex-basis: 25%;
+    padding: 1rem;
+    padding-top: 0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+.flashCard h2 {
+    font-weight: 300;
+    font-size: 2rem;
+    margin: 0.5rem;
+}

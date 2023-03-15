@@ -1,0 +1,27 @@
+.searchbtn{
+    background-color: #3D948B;
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px;
+    border: none;
+}
+
+
+.navbarbtn{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.navbarbtn:hover{
+    background-color: #3F3F3F;
+}
+
+
+@media screen and (max-width: 600px){
+    .searchbtn{
+         width: 20vw;
+    }
+ }

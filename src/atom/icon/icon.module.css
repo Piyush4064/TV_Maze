@@ -1,0 +1,10 @@
+i {
+    color: #ffffffe3;
+    font-size: 2em;
+    margin: 0.4em;
+}
+
+i:hover {
+    transform: scale(1.1);
+    color: white;
+}
