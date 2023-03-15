@@ -17,6 +17,18 @@ function KnownForShows() {
                 <div className={styles.knownForCard}>
                     <Card favourite={false} />
                 </div>
+                <div className={styles.knownForCard}>
+                    <Card favourite={false} />
+                </div>
+                <div className={styles.knownForCard}>
+                    <Card favourite={false} />
+                </div>
+                <div className={styles.knownForCard}>
+                    <Card favourite={false} />
+                </div>
+                <div className={styles.knownForCard}>
+                    <Card favourite={false} />
+                </div>
             </div>
         </div>
     );

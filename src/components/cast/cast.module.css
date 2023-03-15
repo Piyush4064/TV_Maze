@@ -1,15 +1,17 @@
 .cast {
     width: 90%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .cast .castDetail {
-    text-align: left;   
+    text-align: left;
     margin: 1.5rem 1rem;
-    display: grid;
-    grid-template-columns: 40% 1fr;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 img {

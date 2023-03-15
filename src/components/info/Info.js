@@ -10,7 +10,7 @@ function Info() {
         <div>
             <h1>The Mandalorian</h1>
             <div className={styles.main}>
-                <Card showFooterName={false} follow = {true}/>
+                <Card showFooterName={false} follow={true} />
                 <Description />
                 <FlashCard />
             </div>

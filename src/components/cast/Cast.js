@@ -18,6 +18,18 @@ function Cast() {
                 <Card showFooterIcon={false} showFooterName={false} />
                 <CastInfo />
             </div>
+            <div className={styles.castDetail}>
+                <Card showFooterIcon={false} showFooterName={false} />
+                <CastInfo />
+            </div>
+            <div className={styles.castDetail}>
+                <Card showFooterIcon={false} showFooterName={false} />
+                <CastInfo />
+            </div>
+            <div className={styles.castDetail}>
+                <Card showFooterIcon={false} showFooterName={false} />
+                <CastInfo />
+            </div>
         </div>
     );
 }

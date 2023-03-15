@@ -1,13 +1,15 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     margin: 0 11%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .knownForCard {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-basis: 25%;
 }
 
 h2 {

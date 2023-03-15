@@ -1,8 +1,13 @@
 .season {
     width: 70%;
     min-height: 15rem;
-    display: grid;
+    display: flex;
     margin: 2rem auto;
-    grid-template-columns: 20% 80%;
     text-align: left;
+}
+
+@media (max-width: 540px) {
+    .season {
+        flex-wrap: wrap;
+    }
 }

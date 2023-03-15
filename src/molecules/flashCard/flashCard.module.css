@@ -6,6 +6,7 @@
     line-height: 1.6;
     margin-bottom: 2rem;
     border-radius: 1rem;
+    min-width: 310px;
 }
 .flashCard h2 {
     font-weight: 300;

@@ -5,7 +5,7 @@ import KnownForShows from "../knownForShows/KnownForShows";
 
 function PersonInfo() {
     return (
-        <div>
+        <div className="personInfo">
             <Info />
             <KnownForShows />
         </div>
