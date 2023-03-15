@@ -1,22 +1,22 @@
 import React from "react";
 
 import styles from "./season.module.css";
-import CardImage from "../../molecules/cardImage/CardImage";
+import Card from "../../organism/card/Card";
 import SeasonInfo from "../../molecules/seasonInfo/SeasonInfo";
 
 function Season() {
     return (
         <div>
             <div className={styles.season}>
-                <CardImage />
+                <Card showFooterName={false} showFooterIcon={false} />
                 <SeasonInfo />
             </div>
             <div className={styles.season}>
-                <CardImage />
+                <Card showFooterName={false} showFooterIcon={false} />
                 <SeasonInfo />
             </div>
             <div className={styles.season}>
-                <CardImage />
+                <Card showFooterName={false} showFooterIcon={false} />
                 <SeasonInfo />
             </div>
         </div>

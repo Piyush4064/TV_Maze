@@ -1,0 +1,47 @@
+.card {
+    background-color: #3c948b;
+    margin: 1rem;
+    min-width: 10rem;
+    max-width: 14rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+    border-radius: 0.5rem;
+}
+
+img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.movieName {
+    color: #ffffffe3;
+    padding: 0.3rem 0 0.5rem 0;
+    text-align: center;
+    border-bottom: solid 1px #ffffffe3;
+}
+
+.cardFooter {
+    padding: 0.4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.cardFooter span {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: 200;
+}
+
+.maxHeight {
+    height: 100%;
+}
+/* 
+.moviePosterCardFooter {
+    margin: 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./knownForShows.module.css";
-import PeopleCard from "../../organism/peopleCard/PeopleCard";
+import Card from "../../organism/card/Card";
 
 function KnownForShows() {
     return (
@@ -9,13 +9,13 @@ function KnownForShows() {
             <h2>Known For</h2>
             <div className={styles.container}>
                 <div className={styles.knownForCard}>
-                    <PeopleCard />
+                    <Card favourite={false} />
                 </div>
                 <div className={styles.knownForCard}>
-                    <PeopleCard />
+                    <Card favourite={false} />
                 </div>
                 <div className={styles.knownForCard}>
-                    <PeopleCard />
+                    <Card favourite={false} />
                 </div>
             </div>
         </div>
