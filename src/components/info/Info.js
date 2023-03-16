@@ -4,11 +4,13 @@ import Card from "../../organism/card/Card";
 import FlashCard from "../../molecules/flashCard/FlashCard";
 import Description from "../../organism/description/Description";
 import styles from "./info.module.css";
+import MovieNav from "../../molecules/MovieNav/MovieNav";
 
 function Info() {
     return (
         <div>
             <h1>The Mandalorian</h1>
+            <MovieNav />
             <div className={styles.main}>
                 <Card showFooterName={false} follow={true} />
                 <Description />

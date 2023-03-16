@@ -4,3 +4,8 @@
     margin: 5%;
     justify-content: center;
 }
+
+.filterwithContainer{
+    display: flex;
+    flex-direction: row;
+}
