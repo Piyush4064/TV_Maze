@@ -18,3 +18,40 @@
 .navbarbtn:hover{
     background-color: #3F3F3F;
 }
+
+.movienavbtn{
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+    
+}
+
+.movienavbtn:hover{
+    background-color: #44aca2;
+    color: white;
+    transition: 0.3s;
+}
+
+.movienavactive{
+    background-color: #3F3F3F;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+}
+
+.movienavactive:hover{
+    background-color: #44aca2;
+    color: white;
+    transition: 0.3s;
+}
+
+
+@media screen and (max-width: 600px){
+    .searchbtn{
+         width: 20vw;
+    }
+ }
