@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Icon } from "../../atom";
 
 import styles from "./table.module.css";
 
-function Table() {
+function Table({ seasonId }) {
+    const [episodes, setEpisodes] = useState([]);
+
+    useEffect(() => {
+        fetch("https://api.tvmaze.com/seasons/" + seasonId + "/episodes")
+            .then((res) => res.json())
+            .then((data) => {
+                data.reverse();
+                setEpisodes(data);
+            });
+    }, [seasonId]);
+
     return (
         <div>
             <table class={styles.styled_table}>
@@ -18,58 +29,26 @@ function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dec 27, 2019</td>
-                        <td>Chapter 8: Redemption</td>
-                        <td>
-                            <i class="fa-solid fa-star"></i> 8.7
-                        </td>
-                        <td>
-                            <Icon classes="fa-solid fa-cloud" />
-                            <Icon classes="fa-solid fa-eye" />
-                            <Icon classes="fa-solid fa-ban" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dec 27, 2019</td>
-                        <td>Chapter 8: Redemption</td>
-                        <td>
-                            <i class="fa-solid fa-star"></i> 8.7
-                        </td>
-                        <td>
-                            <Icon classes="fa-solid fa-cloud" />
-                            <Icon classes="fa-solid fa-eye" />
-                            <Icon classes="fa-solid fa-ban" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dec 27, 2019</td>
-                        <td>Chapter 8: Redemption</td>
-                        <td>
-                            <i class="fa-solid fa-star"></i> 8.7
-                        </td>
-                        <td>
-                            <Icon classes="fa-solid fa-cloud" />
-                            <Icon classes="fa-solid fa-eye" />
-                            <Icon classes="fa-solid fa-ban" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dec 27, 2019</td>
-                        <td>Chapter 8: Redemption</td>
-                        <td>
-                            <i class="fa-solid fa-star"></i> 8.7
-                        </td>
-                        <td>
-                            <Icon classes="fa-solid fa-cloud" />
-                            <Icon classes="fa-solid fa-eye" />
-                            <Icon classes="fa-solid fa-ban" />
-                        </td>
-                    </tr>
+                    {episodes.map((item) => {
+                        return (
+                            item.number && (
+                                <tr>
+                                    <td>{item?.number}</td>
+                                    <td>{item?.airdate}</td>
+                                    <td>{item?.name}</td>
+                                    <td>
+                                        <i class="fa-solid fa-star"></i>{" "}
+                                        {item?.rating?.average}
+                                    </td>
+                                    <td>
+                                        <Icon classes="fa-solid fa-cloud" />
+                                        <Icon classes="fa-solid fa-eye" />
+                                        <Icon classes="fa-solid fa-ban" />
+                                    </td>
+                                </tr>
+                            )
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

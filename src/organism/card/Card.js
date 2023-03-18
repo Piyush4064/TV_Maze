@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Icon } from "../../atom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import styles from "./card.module.css";
 
@@ -10,12 +10,24 @@ function Card({
     follow = false,
     favourite = true,
     showFooterName = true,
+    item,
+    requestFrom,
 }) {
+    const [name, setName] = useState("");
+    useEffect(() => setName(item?.name?.replace(/ /g, "-")), [item?.name]);
+
+    let URL = useLocation().pathname;
+    if (requestFrom === "people") {
+        URL = "/people/" + item.id + "/" + name;
+    } else if (requestFrom === "show") {
+        URL = "/show/" + item.id + "/" + name;
+    }
+
     return (
         <div className={styles.card}>
-            <Link to="/show/main">
+            <Link to={URL}>
                 <img
-                    src="https://static.tvmaze.com/uploads/images/medium_portrait/444/1112115.jpg"
+                    src={item?.image?.medium}
                     alt="movie"
                     className={!showFooterName && !showFooterIcon && styles.maxHeight}
                 />
@@ -23,7 +35,7 @@ function Card({
 
             {showFooterName && (
                 <div>
-                    <div className={styles.movieName}>The Mandalorian</div>
+                    <div className={styles.movieName}>{item?.name}</div>
                 </div>
             )}
 
@@ -34,7 +46,7 @@ function Card({
                         {favourite && (
                             <div>
                                 <Icon classes="fa-regular fa-star " />
-                                <span>8.6</span>
+                                <span>{item.rating.average}</span>
                             </div>
                         )}
                     </div>
