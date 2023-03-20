@@ -1,7 +1,7 @@
 import React from "react";
 import dummyData from "../../dummy/filter.dummy";
 import Filter from "../../organism/filter";
-import InfiniteScroll from "../infiniteScroll";
+import InfiniteScroll from "../../hoc/infiniteScroll";
 
 import styles from "./show.module.css";
 
@@ -13,7 +13,7 @@ function Show() {
             <h1>Show</h1>
             <div className={styles.filterwithContainer}>
                 <Filter data={dummyData} />
-                <InfiniteScroll url={URL} requestFrom="show"/>
+                <InfiniteScroll url={URL} requestFrom="show" />
             </div>
         </div>
     );

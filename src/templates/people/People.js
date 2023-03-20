@@ -1,6 +1,6 @@
 import React from "react";
 
-import InfiniteScroll from "../infiniteScroll";
+import InfiniteScroll from "../../hoc/infiniteScroll";
 
 import styles from "./people.module.css";
 
@@ -10,7 +10,7 @@ function People() {
     return (
         <div>
             <h1>People</h1>
-            <InfiniteScroll url={URL} favourite={false} requestFrom="people"/>
+            <InfiniteScroll url={URL} favourite={false} requestFrom="people" />
         </div>
     );
 }
