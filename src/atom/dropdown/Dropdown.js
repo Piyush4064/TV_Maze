@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './dropdown.module.css'
 
-function DropDown(props) {
+function Dropdown(props) {
     const onChange = (event) => {
         const {onChange} = props;
         onChange(event);
@@ -20,4 +20,4 @@ function DropDown(props) {
   )
 }
 
-export default DropDown;
+export default Dropdown;

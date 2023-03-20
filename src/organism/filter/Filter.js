@@ -1,9 +1,9 @@
 import React from 'react';
 import { Icon } from '../../atom';
-import DropDown from '../../atom/dropdown/Dropdown';
 import Modal from '../../molecules/Modal/Modal';
-import Radio from '../../molecules/radio/Radio';
 import { useWindowDimension } from '../../util';
+import {Dropdown} from '../../atom';
+import Radio from '../../molecules/radio';
 import styles from './filter.module.css';
 
 
@@ -30,7 +30,7 @@ function FilterWindow(props) {
                 options={data.options} 
                 onChange={onChange}/> 
                 : 
-                <DropDown 
+                <Dropdown 
                 options={data.options} 
                 onChange={onChange}/>
             }

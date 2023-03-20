@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import styles from "./infiniteScroll.module.css";
-import Card from "../../organism/card/Card";
+import Card from "../../organism/card";
 
 function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
     const [items, setItems] = useState([]);

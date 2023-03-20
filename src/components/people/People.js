@@ -1,6 +1,6 @@
 import React from "react";
 
-import InfiniteScroll from "../infiniteScroll/InfiniteScroll";
+import InfiniteScroll from "../infiniteScroll";
 
 import styles from "./people.module.css";
 

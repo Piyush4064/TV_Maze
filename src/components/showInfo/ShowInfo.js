@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import MovieNav from "../../molecules/MovieNav/MovieNav";
+import MovieNav from "../../molecules/MovieNav";
 import { useParams } from "react-router-dom";
-import Info from "../info/Info";
+import Info from "../info";
 
 function ShowInfo() {
     const [showDetails, setShowDetails] = useState({});
