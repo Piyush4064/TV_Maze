@@ -1,7 +1,7 @@
 import React from "react";
 import dummyData from "../../dummy/filter.dummy";
-import Filter from "../../organism/filter/Filter";
-import InfiniteScroll from "../infiniteScroll/InfiniteScroll";
+import Filter from "../../organism/filter";
+import InfiniteScroll from "../infiniteScroll";
 
 import styles from "./show.module.css";
 

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 import styles from "./season.module.css";
-import Card from "../../organism/card/Card";
-import SeasonInfo from "../../molecules/seasonInfo/SeasonInfo";
-import MovieNav from "../../molecules/MovieNav/MovieNav";
+import Card from "../../organism/card";
+import SeasonInfo from "../../molecules/seasonInfo";
+import MovieNav from "../../molecules/MovieNav";
 
 function Season() {
     const { id } = useParams();

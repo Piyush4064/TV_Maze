@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import styles from "./knownForShows.module.css";
-import Card from "../../organism/card/Card";
+import Card from "../../organism/card";
 
 function KnownForShows({ castcredits }) {
     const [showDetail, setShowDetail] = useState([]);
