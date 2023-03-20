@@ -8,6 +8,8 @@
     grid-template-columns: repeat(15, 1fr);
     line-height: 1;
     color: #3c948b;
+    position: sticky;
+    top: 0;
 }
 
 .navbar span:hover {

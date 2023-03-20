@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import MovieNav from "../../molecules/MovieNav";
+import MovieNav from "../../molecules/movieNav";
 import { useParams } from "react-router-dom";
 import Info from "../info";
 

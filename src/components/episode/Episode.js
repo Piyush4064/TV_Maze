@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Table from "../../organism/table";
 import NavBarEpisode from "../../molecules/navBarEpisode";
 import styles from "./episode.module.css";
-import MovieNav from "../../molecules/MovieNav";
+import MovieNav from "../../molecules/movieNav";
 import { useParams } from "react-router-dom";
 
 function Episode() {
@@ -21,11 +21,11 @@ function Episode() {
     return (
         <div className={styles.episode}>
             <MovieNav />
-            <NavBarEpisode />
+            <NavBarEpisode seasons={seasons} />
             {seasons.map((item) => {
                 return (
                     <div>
-                        <h2>
+                        <h2 id={"S" + item.number}>
                             <span>Season {item.number}</span>
                         </h2>
                         <Table seasonId={item.id} />

@@ -1,20 +1,20 @@
 const movieNavData = [
     {
         name: "Main",
-        link : "/show/main"
+        link: "/show/:id/:name/main",
     },
     {
         name: "Episodes",
-        link : "/show/episode"
+        link: "/show/episode",
     },
     {
         name: "Seasons",
-        link : "/show/season"
+        link: "/show/season",
     },
     {
         name: "Cast",
-        link : "/show/cast"
-    }
-]
+        link: "/show/cast",
+    },
+];
 
 export default movieNavData;

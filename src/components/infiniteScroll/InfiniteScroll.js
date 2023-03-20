@@ -2,25 +2,30 @@ import React, { useState, useEffect } from "react";
 
 import styles from "./infiniteScroll.module.css";
 import Card from "../../organism/card";
+import SkeletonCardList from "../../organism/skeletonCardList/SkeletonCardList";
 
 function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
     const [items, setItems] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
+    const [loaded, setLoaded] = useState(true);
 
     useEffect(() => {
         fetchData(page);
     }, [page]);
 
     const fetchData = async (page) => {
+        setLoaded(false);
         const response = await fetch(url + page);
         if (response.ok === false) {
             setHasMore(false);
             return;
         }
-        const data = await response.json();
+        const data = await response.json(); // remove await
         setItems([...items, ...data]);
+        setLoaded(true);
     };
+
     const onScroll = () => {
         const scrollTop = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight;
@@ -47,6 +52,7 @@ function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
                     />
                 </div>
             ))}
+            {!loaded && hasMore && <SkeletonCardList />}
         </div>
     );
 }

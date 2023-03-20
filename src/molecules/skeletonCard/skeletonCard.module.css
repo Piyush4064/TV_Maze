@@ -1,0 +1,24 @@
+.skeleton_card {
+    background-color: #f6f7f8;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    max-width: 16rem;
+    min-width: 14rem;
+    height: 15rem;
+    margin: 1rem;
+}
+
+.skeleton_card_header {
+    height: 40px;
+    background-color: #e8e8e8;
+}
+
+.skeleton_card_body {
+    padding: 20px;
+}
+
+.skeleton_line {
+    height: 10px;
+    margin-bottom: 10px;
+    background-color: #e8e8e8;
+}

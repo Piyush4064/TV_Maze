@@ -30,7 +30,11 @@ function KnownForShows({ castcredits }) {
                 {showDetail.map((item) => {
                     return (
                         <div className={styles.knownForCard}>
-                            <Card favourite={false} item={item} />
+                            <Card
+                                favourite={false}
+                                item={item}
+                                requestFrom="knownForShows"
+                            />
                         </div>
                     );
                 })}

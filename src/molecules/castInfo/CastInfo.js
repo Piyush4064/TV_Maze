@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./castInfo.module.css";
 
 function CastInfo({ item }) {
+    const [name, setName] = useState("");
+    useEffect(
+        () => setName(item?.person?.name?.replace(/ /g, "-")),
+        [item?.person?.name]
+    );
+
+    let URL = "/people/" + item?.person?.id + "/" + name;
     return (
         <div className={styles.infoCard}>
             <h2>
-                <a href="/people/1123/pedro-pascal">{item?.person?.name}</a>
+                <a href={URL}>{item?.person?.name}</a>
             </h2>
             {" as "}
             <a href="/characters/572164/the-mandalorian-mandalorian">

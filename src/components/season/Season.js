@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./season.module.css";
 import Card from "../../organism/card";
 import SeasonInfo from "../../molecules/seasonInfo";
-import MovieNav from "../../molecules/MovieNav";
+import MovieNav from "../../molecules/movieNav";
 
 function Season() {
     const { id } = useParams();

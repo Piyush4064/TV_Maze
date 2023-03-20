@@ -1,13 +1,20 @@
 import React from "react";
 
-import styles from "./navBarEpisode.module.css"
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-function NavBarEpisode() {
+import styles from "./navBarEpisode.module.css";
+
+function NavBarEpisode({ seasons }) {
+    let data = seasons.slice().reverse();
     return (
         <nav className={styles.navbar}>
-            <span>S01</span>
-            <span>S02</span>
-            <span>S03</span>
+            {data.map((item) => {
+                return (
+                    <AnchorLink href={"#S" + item.number}>
+                        <span>{"S" + item.number}</span>
+                    </AnchorLink>
+                );
+            })}
         </nav>
     );
 }

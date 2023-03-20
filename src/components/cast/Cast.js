@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./cast.module.css";
 import Card from "../../organism/card";
 import CastInfo from "../../molecules/castInfo";
-import MovieNav from "../../molecules/MovieNav";
+import MovieNav from "../../molecules/movieNav";
 function Cast() {
     const { id } = useParams();
     const [cast, setCast] = useState([]);
@@ -27,6 +27,7 @@ function Cast() {
                                 showFooterIcon={false}
                                 showFooterName={false}
                                 item={item.person}
+                                requestFrom="cast"
                             />
                             <CastInfo item={item} />
                         </div>
