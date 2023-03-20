@@ -14,7 +14,7 @@ function Input(props) {
     name = {props.name}
     placeholder = {props.placeholder}
     value = {props.value}
-    onChange = {() => onChangeInput()}
+    onChange = {(event) => onChangeInput(event)}
     required = {props.required}
     />
   )
