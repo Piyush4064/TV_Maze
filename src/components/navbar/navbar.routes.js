@@ -1,7 +1,7 @@
 const navbarRoutes = [
     {
         name: "Shows",
-        link: '/shows'
+        link: '/show'
     },
     {
         name: "People",
