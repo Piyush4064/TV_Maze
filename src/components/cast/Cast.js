@@ -1,34 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import styles from "./cast.module.css";
 import Card from "../../organism/card/Card";
 import CastInfo from "../../molecules/castInfo/CastInfo";
+import MovieNav from "../../molecules/MovieNav/MovieNav";
 function Cast() {
+    const { id } = useParams();
+    const [cast, setCast] = useState([]);
+
+    useEffect(() => {
+        fetch("https://api.tvmaze.com/shows/" + id + "/cast")
+            .then((res) => res.json())
+            .then((data) => {
+                setCast(data);
+            });
+    }, [id]);
     return (
-        <div className={styles.cast}>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
-            </div>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
-            </div>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
-            </div>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
-            </div>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
-            </div>
-            <div className={styles.castDetail}>
-                <Card showFooterIcon={false} showFooterName={false} />
-                <CastInfo />
+        <div>
+            <MovieNav />
+            <div className={styles.cast}>
+                {cast.map((item) => {
+                    return (
+                        <div className={styles.castDetail}>
+                            <Card
+                                showFooterIcon={false}
+                                showFooterName={false}
+                                item={item.person}
+                            />
+                            <CastInfo item={item} />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

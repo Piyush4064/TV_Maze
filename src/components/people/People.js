@@ -1,19 +1,16 @@
 import React from "react";
-import Card from "../../organism/card/Card";
+
+import InfiniteScroll from "../infiniteScroll/InfiniteScroll";
 
 import styles from "./people.module.css";
+
+const URL = "https://api.tvmaze.com/people?page=";
 
 function People() {
     return (
         <div>
             <h1>People</h1>
-            <div className={styles.container}>
-                <Card favourite={false} />
-                <Card favourite={false} />
-                <Card favourite={false} />
-                <Card favourite={false} />
-                <Card favourite={false} />
-            </div>
+            <InfiniteScroll url={URL} favourite={false} requestFrom="people"/>
         </div>
     );
 }

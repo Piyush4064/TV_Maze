@@ -1,23 +1,19 @@
 import React from "react";
 import dummyData from "../../dummy/filter.dummy";
-import Card from "../../organism/card/Card";
 import Filter from "../../organism/filter/Filter";
+import InfiniteScroll from "../infiniteScroll/InfiniteScroll";
 
 import styles from "./show.module.css";
 
+const URL = "https://api.tvmaze.com/shows?page=";
+
 function Show() {
     return (
-        <div>
+        <div className={styles.show}>
             <h1>Show</h1>
             <div className={styles.filterwithContainer}>
-            <Filter data={dummyData}/>
-            <div className={styles.container}>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </div>
+                <Filter data={dummyData} />
+                <InfiniteScroll url={URL} requestFrom="show"/>
             </div>
         </div>
     );

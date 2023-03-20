@@ -3,7 +3,7 @@ import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Breadcrumb from "./molecules/breadcrumb/Breadcrumb";
 import Show from "./components/show/Show";
-import Info from "./components/info/Info";
+import ShowInfo from "./components/showInfo/ShowInfo";
 import Episode from "./components/episode/Episode";
 import Season from "./components/season/Season";
 import PersonInfo from "./components/personInfo/personInfo";
@@ -21,12 +21,12 @@ function App() {
             <Routes>
                 <Route index element={<Show />} />
                 <Route path="show" element={<Show />} />
-                <Route path="show/main" element={<Info />} />
-                <Route path="show/cast" element={<Cast />} />
-                <Route path="show/episode" element={<Episode />} />
-                <Route path="show/season" element={<Season />} />
+                <Route path="show/:id/:name" element={<ShowInfo />} />
+                <Route path="show/:id/:name/cast" element={<Cast />} />
+                <Route path="show/:id/:name/episodes" element={<Episode />} />
+                <Route path="show/:id/:name/seasons" element={<Season />} />
                 <Route path="people" element={<People />} />
-                <Route path="people/personInfo" element={<PersonInfo />} />
+                <Route path="people/:id/:name" element={<PersonInfo />} />
             </Routes>
         </div>
     );
