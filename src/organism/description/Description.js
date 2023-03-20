@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./description.module.css";
 
-import CombinedSocialMedia from "../../molecules/combinedSocialMedia/CombinedSocialMedia";
+import CombinedSocialMedia from "../../molecules/combinedSocialMedia";
 
 function Description({ summary }) {
     return (

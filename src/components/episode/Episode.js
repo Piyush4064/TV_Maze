@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import Table from "../../organism/table/Table";
-import NavBarEpisode from "../../molecules/navBarEpisode/NavBarEpisode";
+import Table from "../../organism/table";
+import NavBarEpisode from "../../molecules/navBarEpisode";
 import styles from "./episode.module.css";
-import MovieNav from "../../molecules/MovieNav/MovieNav";
+import MovieNav from "../../molecules/movieNav";
 import { useParams } from "react-router-dom";
 
 function Episode() {

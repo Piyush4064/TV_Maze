@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from '../../organism/searchBar/SearchBar';
+import SearchBar from '../../organism/searchBar';
 import './header.css';
 
 function Header() {

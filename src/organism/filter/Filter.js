@@ -1,6 +1,6 @@
 import React from 'react';
-import DropDown from '../../atom/dropdown/Dropdown';
-import Radio from '../../molecules/radio/Radio';
+import {Dropdown} from '../../atom';
+import Radio from '../../molecules/radio';
 import styles from './filter.module.css';
 
 
@@ -28,7 +28,7 @@ function Filter(props) {
                 options={data.options} 
                 onChange={onChange}/> 
                 : 
-                <DropDown 
+                <Dropdown 
                 options={data.options} 
                 onChange={onChange}/>
             }

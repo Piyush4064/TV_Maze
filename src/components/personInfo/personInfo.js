@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Info from "../info/Info";
-import KnownForShows from "../knownForShows/KnownForShows";
+import Info from "../info";
+import KnownForShows from "../knownForShows";
 
 function PersonInfo() {
     const [personDetails, setPersonDetails] = useState({});

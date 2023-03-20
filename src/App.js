@@ -1,16 +1,16 @@
 import "./App.css";
-import Header from "./components/header/Header";
-import Navbar from "./components/navbar/Navbar";
-import Breadcrumb from "./molecules/breadcrumb/Breadcrumb";
-import Show from "./components/show/Show";
-import ShowInfo from "./components/showInfo/ShowInfo";
-import Episode from "./components/episode/Episode";
-import Season from "./components/season/Season";
-import PersonInfo from "./components/personInfo/personInfo";
+import Header from "./components/header";
+import Navbar from "./components/navbar";
+import Breadcrumb from "./molecules/breadcrumb";
+import Show from "./components/show/";
+import ShowInfo from "./components/showInfo";
+import Episode from "./components/episode";
+import Season from "./components/season";
+import PersonInfo from "./components/personInfo";
 
 import { Routes, Route } from "react-router-dom";
-import Cast from "./components/cast/Cast";
-import People from "./components/people/People";
+import Cast from "./components/cast";
+import People from "./components/people";
 
 function App() {
     return (
