@@ -4,7 +4,7 @@ import styles from "./infiniteScroll.module.css";
 import Card from "../../organism/card";
 import SkeletonCardList from "../../organism/skeletonCardList/SkeletonCardList";
 
-function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
+function InfiniteScroll({ url, url2, favourite = true, requestFrom = null , onScrollData, ...props}) {
     const [items, setItems] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -16,13 +16,7 @@ function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
 
     const fetchData = async (page) => {
         setLoaded(false);
-        const response = await fetch(url + page);
-        if (response.ok === false) {
-            setHasMore(false);
-            return;
-        }
-        const data = await response.json(); // remove await
-        setItems([...items, ...data]);
+        onScrollData(page);
         setLoaded(true);
     };
 
@@ -42,16 +36,7 @@ function InfiniteScroll({ url, favourite = true, requestFrom = null }) {
 
     return (
         <div className={styles.container}>
-            {items.map((item, index) => (
-                <div key={index}>
-                    <Card
-                        item={item}
-                        key={item.id}
-                        favourite={favourite}
-                        requestFrom={requestFrom}
-                    />
-                </div>
-            ))}
+            {props.children}
             {!loaded && hasMore && <SkeletonCardList />}
         </div>
     );

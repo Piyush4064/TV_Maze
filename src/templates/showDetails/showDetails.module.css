@@ -1,0 +1,10 @@
+.showDetails {
+    margin: 1rem auto;
+    text-align: left;
+}
+
+.showDetails h2 {
+    color: #3c948b;
+    font-weight: 200;
+    margin-left: 0;
+}

@@ -26,7 +26,7 @@ function Card({
         URL = "/people/" + item.id + "/" + name;
     } else if (requestFrom === "show" || requestFrom === "knownForShows") {
         URL = "/show/" + item.id + "/" + name;
-    }
+    } 
 
     return (
         <div className={styles.card}>
