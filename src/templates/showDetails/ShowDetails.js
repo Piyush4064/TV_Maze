@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./showDetails.module.css";
-import MovieNav from "../../molecules/movieNav/MovieNav";
+import MovieNav from "../../molecules/MovieNav";
 
 function ShowDetails(props) {
     return (

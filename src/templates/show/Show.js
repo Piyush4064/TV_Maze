@@ -21,7 +21,7 @@ function Show({ url, favourite = true, requestFrom = null }) {
         <div className={styles.show}>
             <div className={styles.filterwithContainer}>
                 {/* <Filter data={dummyData} /> */}
-                <InfiniteScroll url={URL} requestFrom="show" onScrollData={onScrollData}>
+                <InfiniteScroll url={URL} requestFrom={requestFrom} onScrollData={onScrollData}>
                     {items.map((item, index) => (
                         <div key={index}>
                             <Card
