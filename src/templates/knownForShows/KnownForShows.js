@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import styles from "./knownForShows.module.css";
 import Card from "../../organism/card";
+import { fetchGetRequest } from "../../api/api";
 
 function KnownForShows({ castcredits }) {
     const [showDetail, setShowDetail] = useState([]);
@@ -12,10 +13,11 @@ function KnownForShows({ castcredits }) {
             const tmpShowDetail = [];
             await Promise.all(
                 data.map(async (item) => {
-                    console.log("item", item);
-                    const response = await fetch(item._links.show.href);
-                    const result = await response.json();
-                    tmpShowDetail.push(result);
+                    const data = await fetchGetRequest(item._links.show.href);
+                    if (data === null) {
+                        return;
+                    }
+                    tmpShowDetail.push(data);
                 })
             );
             setShowDetail(tmpShowDetail);

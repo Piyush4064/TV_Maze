@@ -4,17 +4,19 @@ import Filter from "../../organism/filter";
 import InfiniteScroll from "../../hoc/infiniteScroll";
 import styles from "./show.module.css";
 import Card from "../../organism/card/Card";
+import { fetchGetRequest } from "../../api/api";
 
 function Show({ url, favourite = true, requestFrom = null }) {
     const [items, setItems] = React.useState([]);
 
     async function onScrollData(page) {
-        const response = await fetch(url + page);
-        if (response.ok === false) {
-            return;
-        }
-        const data = await response.json();
-        setItems([...items, ...data]);
+        (async () => {
+            const data = await fetchGetRequest(url + page);
+            if (data === null) {
+                return;
+            }
+            setItems([...items, ...data]);
+        })();
     }
 
     return (

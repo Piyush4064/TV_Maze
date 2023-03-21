@@ -4,17 +4,21 @@ import { Icon } from "../../atom";
 
 import styles from "./table.module.css";
 
+import { fetchGetRequest } from "../../api/api";
+
 function Table({ seasonId }) {
     const [episodes, setEpisodes] = useState([]);
-
+    const URL = "https://api.tvmaze.com/seasons/" + seasonId + "/episodes";
     useEffect(() => {
-        fetch("https://api.tvmaze.com/seasons/" + seasonId + "/episodes")
-            .then((res) => res.json())
-            .then((data) => {
-                data.reverse();
-                setEpisodes(data);
-            });
-    }, [seasonId]);
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            data.reverse();
+            setEpisodes(data);
+        })();
+    }, [URL, seasonId]);
 
     return (
         <div>

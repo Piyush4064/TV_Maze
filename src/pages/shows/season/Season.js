@@ -6,18 +6,22 @@ import Card from "../../../organism/card/Card";
 import SeasonInfo from "../../../molecules/seasonInfo";
 
 import ShowDetails from "../../../templates/showDetails/ShowDetails";
+import { fetchGetRequest } from "../../../api/api";
 
 function Season() {
     const { id, name } = useParams();
     const [seasons, setSeasons] = useState([]);
 
+    const URL = "https://api.tvmaze.com/shows/" + id + "/seasons";
     useEffect(() => {
-        fetch("https://api.tvmaze.com/shows/" + id + "/seasons")
-            .then((res) => res.json())
-            .then((data) => {
-                setSeasons(data);
-            });
-    }, [id]);
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            setSeasons(data);
+        })();
+    }, [URL, id]);
 
     return (
         <ShowDetails showTitle={name}>

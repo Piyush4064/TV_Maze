@@ -3,6 +3,7 @@
     margin: 1rem;
     min-width: 10rem;
     max-width: 14rem;
+    max-height: 350px;
     flex-shrink: 1;
     flex-grow: 1;
     border-radius: 0.5rem;
@@ -45,4 +46,3 @@ img {
     justify-content: center;
     align-items: center;
 } */
-

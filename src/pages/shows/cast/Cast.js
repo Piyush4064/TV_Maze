@@ -5,17 +5,21 @@ import styles from "./cast.module.css";
 import Card from "../../../organism/card/Card";
 import CastInfo from "../../../molecules/castInfo";
 import ShowDetails from "../../../templates/showDetails/ShowDetails";
+import { fetchGetRequest } from "../../../api/api";
+
 function Cast() {
     const { id, name } = useParams();
     const [cast, setCast] = useState([]);
-
+    const URL = "https://api.tvmaze.com/shows/" + id + "/cast";
     useEffect(() => {
-        fetch("https://api.tvmaze.com/shows/" + id + "/cast")
-            .then((res) => res.json())
-            .then((data) => {
-                setCast(data);
-            });
-    }, [id]);
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            setCast(data);
+        })();
+    }, [URL, id]);
     return (
         <ShowDetails showTitle={name}>
             <div className={styles.cast}>

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Info from "../info";
 import KnownForShows from "../knownForShows";
+import { fetchGetRequest } from "../../api/api";
 
 function PersonInfo() {
     const [personDetails, setPersonDetails] = useState({});
@@ -11,11 +12,13 @@ function PersonInfo() {
     const URL = "https://api.tvmaze.com/people/" + id + "?embed=castcredits";
 
     useEffect(() => {
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => {
-                setPersonDetails(data);
-            });
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            setPersonDetails(data);
+        })();
     }, [URL]);
 
     return (

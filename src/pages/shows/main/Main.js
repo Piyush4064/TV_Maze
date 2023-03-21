@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Info from "../../../templates/info";
 import ShowDetails from "../../../templates/showDetails/ShowDetails";
+import { fetchGetRequest } from "../../../api/api";
 
 function Main() {
     const [showDetails, setShowDetails] = useState({});
@@ -10,11 +11,13 @@ function Main() {
     const URL = "https://api.tvmaze.com/shows/" + id;
 
     useEffect(() => {
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => {
-                setShowDetails(data);
-            });
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            setShowDetails(data);
+        })();
     }, [URL]);
     return (
         <ShowDetails showTitle={showDetails.name}>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Info from "../../../templates/info";
 import KnownForShows from "../../../templates/knownForShows";
 import styles from "./peopleinfo.module.css";
+import { fetchGetRequest } from "../../../api/api";
 
 function PeopleInfo() {
     const [personDetails, setPersonDetails] = useState({});
@@ -12,11 +13,13 @@ function PeopleInfo() {
     const URL = "https://api.tvmaze.com/people/" + id + "?embed=castcredits";
 
     useEffect(() => {
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => {
-                setPersonDetails(data);
-            });
+        (async () => {
+            const data = await fetchGetRequest(URL);
+            if (data === null) {
+                return;
+            }
+            setPersonDetails(data);
+        })();
     }, [URL]);
 
     return (
