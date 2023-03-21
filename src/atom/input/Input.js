@@ -1,5 +1,5 @@
 import React from 'react';
-import './input.css';
+import styles from './input.module.css';
 
 function Input(props) {
 
@@ -10,7 +10,7 @@ function Input(props) {
 
   return (
     <input 
-    className = {props.type}
+    className = {styles[props.type]}
     name = {props.name}
     placeholder = {props.placeholder}
     value = {props.value}

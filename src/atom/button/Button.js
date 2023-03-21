@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css'
+import styles from './button.module.css'
 
 function Button(props) {
 
@@ -10,7 +10,7 @@ function Button(props) {
 
   return (
     <button
-    className={props.type}
+    className={styles[props.type]}
     name = {props.name}
     onClick = {(event) => onClickBtn(event)}
     disabled = {props.disabled}

@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "../../molecules/searchBar";
-import "./header.css";
+import styles from "./header.module.css";
 
 function Header() {
     const [searchData, setSearchData] = React.useState([]);
@@ -12,9 +12,9 @@ function Header() {
     };
 
     return (
-        <div className="header">
+        <div className={styles.header}>
             <img
-                className="header--logo"
+                className={styles["header--logo"]}
                 src="https://static.tvmaze.com/images/tvm-header-logo.png"
                 alt="logo"
             />

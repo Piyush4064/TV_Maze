@@ -23,4 +23,4 @@ function ShowIndex() {
   )
 }
 
-export default ShowIndex
+export default ShowIndex;
