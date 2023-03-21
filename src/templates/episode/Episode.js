@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Table from "../../organism/table";
 import NavBarEpisode from "../../molecules/navBarEpisode";
 import styles from "./episode.module.css";
-import MovieNav from "../../molecules/movieNav";
+import MovieNav from "../../molecules/MovieNav";
 import { useParams } from "react-router-dom";
 
 function Episode() {

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./cast.module.css";
 import Card from "../../organism/card";
 import CastInfo from "../../molecules/castInfo";
-import MovieNav from "../../molecules/movieNav";
+import MovieNav from "../../molecules/MovieNav";
 function Cast() {
     const { id } = useParams();
     const [cast, setCast] = useState([]);
