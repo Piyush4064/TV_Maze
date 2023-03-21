@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./castInfo.module.css";
 
@@ -11,14 +12,12 @@ function CastInfo({ item }) {
 
     let URL = "/people/" + item?.person?.id + "/" + name;
     return (
-        <div className={styles.infoCard}>
-            <h2>
-                <a href={URL}>{item?.person?.name}</a>
+        <div className={styles.castInfo}>
+            <h2 className={styles.castInfo__name}>
+                <Link to={URL}>{item?.person?.name}</Link>
             </h2>
             {" as "}
-            <a href="/characters/572164/the-mandalorian-mandalorian">
-                {item?.character?.name}
-            </a>
+            <Link to="#">{item?.character?.name}</Link>
         </div>
     );
 }

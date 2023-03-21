@@ -16,24 +16,26 @@ function Show({ url, favourite = true, requestFrom = null }) {
         const data = await response.json();
         setItems([...items, ...data]);
     }
-    
+
     return (
         <div className={styles.show}>
-            <div className={styles.filterwithContainer}>
-                {/* <Filter data={dummyData} /> */}
-                <InfiniteScroll url={URL} requestFrom={requestFrom} onScrollData={onScrollData}>
-                    {items.map((item, index) => (
-                        <div key={index}>
-                            <Card
-                                item={item}
-                                key={item.id}
-                                favourite={favourite}
-                                requestFrom={requestFrom}
-                            />
-                        </div>
-                    ))}
-                </InfiniteScroll>
-            </div>
+            {/* <Filter data={dummyData} /> */}
+            <InfiniteScroll
+                url={URL}
+                requestFrom={requestFrom}
+                onScrollData={onScrollData}
+            >
+                {items.map((item, index) => (
+                    <div key={index}>
+                        <Card
+                            item={item}
+                            key={item.id}
+                            favourite={favourite}
+                            requestFrom={requestFrom}
+                        />
+                    </div>
+                ))}
+            </InfiniteScroll>
         </div>
     );
 }

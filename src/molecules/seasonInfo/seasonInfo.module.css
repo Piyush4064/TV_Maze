@@ -1,4 +1,4 @@
-.seasonInfo h2 {
+.seasonInfo__seasonNumber {
     margin: 0;
     font-weight: 300;
     font-size: 2rem;
@@ -9,17 +9,9 @@
     width: 80%;
 }
 
-.seasonInfo img {
-    width: 100%;
-}
-
-.seasonInfo h3 {
+.seasonInfo__networkChannelAndYear {
     margin: 0.5rem 0;
     line-height: 1;
-}
-
-.seasonInfo small {
-    font-size: 100%;
     font-weight: 250;
     color: #cacaca;
 }

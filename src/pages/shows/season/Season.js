@@ -8,7 +8,7 @@ import SeasonInfo from "../../../molecules/seasonInfo";
 import ShowDetails from "../../../templates/showDetails/ShowDetails";
 
 function Season() {
-    const { id } = useParams();
+    const { id, name } = useParams();
     const [seasons, setSeasons] = useState([]);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function Season() {
     }, [id]);
 
     return (
-        <ShowDetails>
+        <ShowDetails showTitle={name}>
             {seasons.map((item) => (
                 <div className={styles.season}>
                     <Card showFooterName={false} showFooterIcon={false} item={item} />

@@ -24,12 +24,12 @@ function KnownForShows({ castcredits }) {
     }, [castcredits]);
 
     return (
-        <div>
-            <h2>Known For</h2>
-            <div className={styles.container}>
+        <div className={styles.knownForShows}>
+            <h2 className={styles.knownForShows__title}>Known For</h2>
+            <div className="container">
                 {showDetail.map((item) => {
                     return (
-                        <div className={styles.knownForCard}>
+                        <div className={styles.knownForShows__Card}>
                             <Card
                                 favourite={false}
                                 item={item}

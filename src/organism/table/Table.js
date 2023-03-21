@@ -18,7 +18,7 @@ function Table({ seasonId }) {
 
     return (
         <div>
-            <table class={styles.styled_table}>
+            <table class={styles.table}>
                 <thead>
                     <tr>
                         <th className={styles.number}>Number</th>
@@ -37,7 +37,7 @@ function Table({ seasonId }) {
                                     <td>{item?.airdate}</td>
                                     <td>{item?.name}</td>
                                     <td>
-                                        <i class="fa-solid fa-star"></i>{" "}
+                                        <Icon classes="fa-solid fa-star" />{" "}
                                         {item?.rating?.average}
                                     </td>
                                     <td>

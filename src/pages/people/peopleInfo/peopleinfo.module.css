@@ -1,3 +1,9 @@
-/* .personInfo {
-    display: flex;
-} */
+.peopleInfo {
+    width: 80%;
+    margin: 1rem auto;
+    text-align: left;
+}
+
+.peopleInfo__title {
+    margin-left: 1rem;
+}

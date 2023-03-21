@@ -1,6 +1,10 @@
-.navbar{
-    background-color: #3D948B;
+.navbar {
+    background-color: #3d948b;
     color: white;
     width: 100vw;
-    padding-left: 20px;
+}
+
+.navbar__navLinks {
+    width: 80%;
+    margin: auto;
 }

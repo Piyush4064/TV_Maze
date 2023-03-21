@@ -1,5 +1,4 @@
-.movienav{
+.movienav {
     display: flex;
-    flex-direction: row;
-    margin-left: 11%;
+    margin-left: 0.5rem;
 }

@@ -1,27 +1,22 @@
 .cast {
-    width: 90%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.cast .castDetail {
+.cast__detail {
     text-align: left;
     margin: 1.5rem 1rem;
-    padding-right: 1rem;
+    flex-basis: 40%;
     display: flex;
     flex-wrap: wrap;
     background-color: #efefe7;
     border-radius: 10px;
 }
 
-img {
-    width: 100%;
-}
 @media (max-width: 485px) {
-    .castDetail {
+    .cast__detail {
         justify-content: center;
         padding-bottom: 1rem;
     }

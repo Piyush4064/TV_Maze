@@ -1,8 +1,8 @@
 .breadcrumb {
-    padding: 1rem 1rem;
+    padding: 1rem;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
     border-radius: 0.5rem;
-    width: 75%;
+    width: 76%;
     margin: 1rem auto;
     background-color: #efefe7;
 }

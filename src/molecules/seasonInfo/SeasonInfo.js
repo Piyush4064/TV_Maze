@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import styles from "./seasonInfo.module.css";
 
 function showPremiereDate(premiereDate, endDate) {
@@ -12,18 +14,13 @@ function showPremiereDate(premiereDate, endDate) {
 function SeasonInfo({ item }) {
     return (
         <div className={styles.seasonInfo}>
-            <h2>
-                <a href="/seasons/89531/the-mandalorian-season-1">Season {item.number}</a>
+            <h2 className={styles.seasonInfo__seasonNumber}>
+                <Link to="#">Season {item.number}</Link>
             </h2>
-            <h3>
-                <small>
-                    <a href="/webchannels/287/disney">
-                        {item?.network?.name || item?.webChannel.name}
-                    </a>
-                    ,{" "}
-                    {item?.premiereDate !== null &&
-                        showPremiereDate(item?.premiereDate, item?.endDate)}
-                </small>
+            <h3 className={styles.seasonInfo__networkChannelAndYear}>
+                <Link to="#">{item?.network?.name || item?.webChannel.name}</Link>,{" "}
+                {item?.premiereDate !== null &&
+                    showPremiereDate(item?.premiereDate, item?.endDate)}
             </h3>
             <p>
                 <div dangerouslySetInnerHTML={{ __html: item.summary }} />

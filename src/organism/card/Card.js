@@ -50,7 +50,7 @@ function Card({
 
             {showFooterName && (
                 <div>
-                    <div className={styles.movieName}>
+                    <div className={styles.card__movieName}>
                         {item?.name?.length > 23
                             ? item?.name?.slice(0, 23) + "..."
                             : item?.name}
@@ -60,7 +60,7 @@ function Card({
 
             {showFooterIcon &&
                 (follow === false ? (
-                    <div className={styles.cardFooter}>
+                    <div className={styles.card__footer}>
                         <Icon classes="fa-regular fa-heart" />
                         {favourite && (
                             <div>
@@ -70,7 +70,7 @@ function Card({
                         )}
                     </div>
                 ) : (
-                    <div className={styles.cardFooter}>
+                    <div className={styles.card__footer}>
                         <span className={styles.moviePosterCardFooter}>
                             <Icon classes="fa-solid fa-heart" />
                             <span>Follow</span>

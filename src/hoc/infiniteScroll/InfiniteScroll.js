@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-import styles from "./infiniteScroll.module.css";
 import Card from "../../organism/card";
 import SkeletonCardList from "../../organism/skeletonCardList/SkeletonCardList";
 
-function InfiniteScroll({ url, url2, favourite = true, requestFrom = null , onScrollData, ...props}) {
+function InfiniteScroll({
+    url,
+    url2,
+    favourite = true,
+    requestFrom = null,
+    onScrollData,
+    ...props
+}) {
     const [items, setItems] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
@@ -35,7 +41,7 @@ function InfiniteScroll({ url, url2, favourite = true, requestFrom = null , onSc
     }, [items]);
 
     return (
-        <div className={styles.container}>
+        <div className="container">
             {props.children}
             {!loaded && hasMore && <SkeletonCardList />}
         </div>

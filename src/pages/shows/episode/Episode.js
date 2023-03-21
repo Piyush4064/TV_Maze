@@ -7,7 +7,7 @@ import ShowDetails from "../../../templates/showDetails/ShowDetails";
 import styles from "./episode.module.css";
 
 function Episode() {
-    const { id } = useParams();
+    const { id, name } = useParams();
     const [seasons, setSeasons] = useState([]);
     useEffect(() => {
         fetch("https://api.tvmaze.com/shows/" + id + "/seasons")
@@ -19,13 +19,13 @@ function Episode() {
     }, [id]);
 
     return (
-        <ShowDetails>
+        <ShowDetails showTitle={name}>
             <NavBarEpisode seasons={seasons} />
             {seasons.map((item) => {
                 return (
-                    <div>
-                        <h2 id={"S" + item.number}>
-                            <span>Season {item.number}</span>
+                    <div className={styles.episode}>
+                        <h2 id={"S" + item.number} className={styles.episode__seasonNumber}>
+                            Season {item.number}
                         </h2>
                         <Table seasonId={item.id} />
                     </div>

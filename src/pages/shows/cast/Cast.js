@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 import styles from "./cast.module.css";
 import Card from "../../../organism/card/Card";
-import CastInfo from "../../../molecules/castInfo"
+import CastInfo from "../../../molecules/castInfo";
 import ShowDetails from "../../../templates/showDetails/ShowDetails";
 function Cast() {
-    const { id } = useParams();
+    const { id, name } = useParams();
     const [cast, setCast] = useState([]);
 
     useEffect(() => {
@@ -17,11 +17,11 @@ function Cast() {
             });
     }, [id]);
     return (
-        <ShowDetails>
+        <ShowDetails showTitle={name}>
             <div className={styles.cast}>
                 {cast.map((item) => {
                     return (
-                        <div className={styles.castDetail}>
+                        <div className={styles.cast__detail}>
                             <Card
                                 showFooterIcon={false}
                                 showFooterName={false}

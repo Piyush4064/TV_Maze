@@ -40,7 +40,7 @@ function showGenres(genres) {
 function FlashCard({ details }) {
     return (
         <div className={styles.flashCard}>
-            <h2>Show Info </h2>
+            <h2 className={styles.flashCard__title}>Show Info </h2>
             {details?.network ? (
                 <div>
                     <strong>Network :</strong>

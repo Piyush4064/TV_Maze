@@ -13,14 +13,14 @@ img {
     border-radius: 0.5rem;
 }
 
-.movieName {
+.card__movieName {
     color: #ffffffe3;
     padding: 0.3rem 0 0.5rem 0;
     text-align: center;
     border-bottom: solid 1px #ffffffe3;
 }
 
-.cardFooter {
+.card__footer {
     padding: 0.4rem;
     display: flex;
     justify-content: space-around;
@@ -29,7 +29,7 @@ img {
     color: white;
 }
 
-.cardFooter span {
+.card__footer span {
     display: inline-block;
     margin-left: 0.5rem;
     font-weight: 200;

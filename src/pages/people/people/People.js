@@ -7,11 +7,9 @@ const URL = "https://api.tvmaze.com/people?page=";
 
 function People() {
     return (
-        <div className={styles.show}>
-            <h1>People</h1>
-            <div className={styles.filterwithContainer}>
-                <Show url={URL} favourite={false} requestFrom="people"  />
-            </div>
+        <div className={styles.people}>
+            <h1 className={styles.people__title}>People</h1>
+            <Show url={URL} favourite={false} requestFrom="people" />
         </div>
     );
 }

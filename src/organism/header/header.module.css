@@ -1,15 +1,17 @@
-.header{
-    background-color: #3F3F3F;
+.header {
+    background-color: #3f3f3f;
     padding: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     color: white;
 }
 
-.header--logo{
+.header--logo {
     width: 120px;
     cursor: pointer;
 }
 
+.header__logo__search {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}

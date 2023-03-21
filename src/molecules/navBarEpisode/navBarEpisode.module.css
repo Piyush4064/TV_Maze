@@ -1,6 +1,6 @@
-.navbar {
+.navBarEpisode {
     margin: 0 auto;
-    padding: 1rem 1rem;
+    padding: 1rem;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
     border-radius: 0.5rem;
     background-color: #efefe7;
@@ -10,8 +10,12 @@
     color: #3c948b;
     position: sticky;
     top: 0;
+    width: 95%;
+    margin-top: 1rem;
 }
 
-.navbar span:hover {
+.navBarEpisode__Season:hover {
     text-decoration: underline;
 }
+
+

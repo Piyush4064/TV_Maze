@@ -7,7 +7,6 @@ function Main() {
     const [showDetails, setShowDetails] = useState({});
 
     const { id } = useParams();
-    console.log("Yes");
     const URL = "https://api.tvmaze.com/shows/" + id;
 
     useEffect(() => {

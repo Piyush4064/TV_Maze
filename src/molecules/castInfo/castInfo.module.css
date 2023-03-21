@@ -1,14 +1,11 @@
-.infoCard {
+.castInfo {
     padding-left: 0.5rem;
 }
-.infoCard h2 {
+.castInfo__name {
     font-weight: 250;
     font-size: 1.3rem;
-    margin-left: 0;
 }
 
-a {
-    color: #3c948b;
-    text-decoration: none;
-    cursor: pointer;
+.castInfo__name:hover {
+    text-decoration: underline;
 }

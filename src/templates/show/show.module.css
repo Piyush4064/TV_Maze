@@ -1,8 +1,4 @@
-.filterwithContainer {
+.show {
     display: flex;
     flex-direction: row;
-}
-
-.show {
-    /* max-width: 80%; */
 }

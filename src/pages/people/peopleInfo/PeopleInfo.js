@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Info from "../../../templates/info";
 import KnownForShows from "../../../templates/knownForShows";
+import styles from "./peopleinfo.module.css";
 
 function PeopleInfo() {
     const [personDetails, setPersonDetails] = useState({});
@@ -19,8 +20,8 @@ function PeopleInfo() {
     }, [URL]);
 
     return (
-        <div className="personInfo">
-            <h1>{personDetails.name}</h1>
+        <div className={styles.peopleInfo}>
+            <h1 className={styles.peopleInfo__title}>{personDetails.name}</h1>
             <Info item={personDetails} />
             <KnownForShows castcredits={personDetails?._embedded?.castcredits} />
         </div>

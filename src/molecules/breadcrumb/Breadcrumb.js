@@ -3,26 +3,27 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./breadcrumb.module.css";
 
 function Breadcrumb() {
-
     const location = useLocation();
-    const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([{name: "Home",link: '/'}]);
+    const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([
+        { name: "Home", link: "/" },
+    ]);
 
     React.useEffect(() => {
         const pathParser = () => {
-            var urlPath = location.pathname.split('/');
+            var urlPath = location.pathname.split("/");
             const pathlist = [];
-            
+
             urlPath.forEach((path) => {
-                if(path === ""){
-                    pathlist.push({name: "Home", link: "/"});
-                }else{
-                    const lastele =  pathlist[pathlist.length - 1];
+                if (path === "") {
+                    pathlist.push({ name: "Home", link: "/" });
+                } else {
+                    const lastele = pathlist[pathlist.length - 1];
                     const nextlink = lastele.link + path + "/";
-                    pathlist.push({name: path, link: nextlink});
+                    pathlist.push({ name: path, link: nextlink });
 
                     setBreadCrumbRoute(pathlist);
                 }
-            })
+            });
         };
 
         pathParser();
@@ -31,11 +32,15 @@ function Breadcrumb() {
     console.log(breadCrumbRoute);
 
     return (
-        <div>
-            <nav aria-label="Breadcrumb" class={styles.breadcrumb}>
-                <ul>
-                    {breadCrumbRoute.map((route) => <li key={route.name}> <Link href={route.link}>{route.name}</Link></li>)}
-                    {/* <li>
+        <nav aria-label="Breadcrumb" class={styles.breadcrumb}>
+            <ul>
+                {breadCrumbRoute.map((route) => (
+                    <li key={route.name}>
+                        {" "}
+                        <Link href={route.link}>{route.name}</Link>
+                    </li>
+                ))}
+                {/* <li>
                         <Link href="#">Home</Link>
                     </li>
                     <li>
@@ -50,9 +55,8 @@ function Breadcrumb() {
                     <li>
                         <span aria-current="page">Product</span>
                     </li> */}
-                </ul>
-            </nav>
-        </div>
+            </ul>
+        </nav>
     );
 }
 

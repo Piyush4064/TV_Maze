@@ -13,12 +13,14 @@ function Header() {
 
     return (
         <div className={styles.header}>
-            <img
-                className={styles["header--logo"]}
-                src="https://static.tvmaze.com/images/tvm-header-logo.png"
-                alt="logo"
-            />
-            <SearchBar searchData={searchData} onSearch={onSearch} />
+            <div className={styles.header__logo__search}>
+                <img
+                    className={styles["header--logo"]}
+                    src="https://static.tvmaze.com/images/tvm-header-logo.png"
+                    alt="logo"
+                />
+                <SearchBar searchData={searchData} onSearch={onSearch} />
+            </div>
         </div>
     );
 }
