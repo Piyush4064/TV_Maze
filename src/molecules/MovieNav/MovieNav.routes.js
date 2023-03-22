@@ -1,19 +1,19 @@
 const movieNavData = [
     {
         name: "Main",
-        link: "/show/:id/:name/main",
+        link: "",
     },
     {
         name: "Episodes",
-        link: "/show/episode",
+        link: "/episodes",
     },
     {
         name: "Seasons",
-        link: "/show/season",
+        link: "/seasons",
     },
     {
         name: "Cast",
-        link: "/show/cast",
+        link: "/cast",
     },
 ];
 

@@ -9,3 +9,10 @@
 .searchinput:focus{
    outline: none;
 }
+
+@media screen and (max-width: 760px) {
+    .searchinput{
+      margin-top: 20px;
+      width: 150px;
+    }
+}
