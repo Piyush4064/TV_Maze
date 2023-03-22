@@ -21,7 +21,7 @@ function Main() {
     }, [URL]);
     return (
         <ShowDetails showTitle={showDetails.name}>
-            <Info item={showDetails} summary={showDetails.summary} />
+            <Info item={showDetails} summary={showDetails.summary} flashCardFor="show" />
         </ShowDetails>
     );
 }

@@ -27,11 +27,8 @@ function Episode() {
             <NavBarEpisode seasons={seasons} />
             {seasons.map((item) => {
                 return (
-                    <div className={styles.episode}>
-                        <h2
-                            id={"S" + item.number}
-                            className={styles.episode__seasonNumber}
-                        >
+                    <div className={styles.episode} id={"S" + item.number}>
+                        <h2 className={styles.episode__seasonNumber}>
                             Season {item.number}
                         </h2>
                         <Table seasonId={item.id} />

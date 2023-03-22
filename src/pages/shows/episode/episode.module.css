@@ -1,3 +1,8 @@
+.episode {
+    padding-top: 3rem;
+    margin-top: -3rem;
+}
+
 .episode__seasonNumber {
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
 }

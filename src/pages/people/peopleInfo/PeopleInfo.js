@@ -25,8 +25,8 @@ function PeopleInfo() {
     return (
         <div className={styles.peopleInfo}>
             <h1 className={styles.peopleInfo__title}>{personDetails.name}</h1>
-            <Info item={personDetails} />
-            <KnownForShows castcredits={personDetails?._embedded?.castcredits} />
+            <Info item={personDetails} flashCardFor="people"/>
+            {personDetails?._embedded?.castcredits.length>0 && <KnownForShows castcredits={personDetails?._embedded?.castcredits} />}
         </div>
     );
 }
