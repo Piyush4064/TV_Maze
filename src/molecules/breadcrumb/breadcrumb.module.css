@@ -16,10 +16,15 @@
     color: #1f4b47;
 }
 
+.breadcrumb  li{
+    cursor: pointer;
+}
+
 .breadcrumb li:not(:last-child)::after {
     display: inline-block;
     margin: 0 0.25rem;
-    content: "→";
+    cursor: pointer;
+    content: "/";
 }
 .breadcrumb li a {
     color: #3c948b;
