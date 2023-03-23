@@ -15,6 +15,7 @@ function Card({
     showFooterName = true,
     item,
     requestFrom,
+    onFavourite
 }) {
     const [name, setName] = useState("");
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -61,7 +62,7 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
-                        <Icon classes="fa-regular fa-heart" />
+                        <Icon classes="fa-regular fa-heart" onClick={onFavourite}/>
                         {favourite && (
                             <div>
                                 <Icon classes="fa-regular fa-star " />
@@ -72,7 +73,7 @@ function Card({
                 ) : (
                     <div className={styles.card__footer}>
                         <span className={styles.moviePosterCardFooter}>
-                            <Icon classes="fa-solid fa-heart" />
+                            <Icon classes="fa-solid fa-heart" onClick={onFavourite}/>
                             <span>Follow</span>
                         </span>
                     </div>

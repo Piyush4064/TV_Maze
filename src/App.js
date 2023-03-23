@@ -5,6 +5,7 @@ import Breadcrumb from "./molecules/breadcrumb";
 import Show from "./pages/shows";
 import Shows from "./pages/shows/shows/Shows";
 import People from "./pages/people/Index";
+import Favourite from './pages/favourite';
 import { Route, Routes } from "react-router-dom";
 
 
@@ -19,6 +20,7 @@ function App() {
             </Routes>
             <Show />
             <People />
+            <Favourite />
         </div>
     );
 }
