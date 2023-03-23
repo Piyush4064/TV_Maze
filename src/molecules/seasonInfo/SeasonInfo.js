@@ -1,15 +1,10 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import {showPremiereDate} from "./helper";
 
 import styles from "./seasonInfo.module.css";
-
-function showPremiereDate(premiereDate, endDate) {
-    if (endDate === null || premiereDate.slice(0, 4) === endDate.slice(0, 4)) {
-        return premiereDate.slice(0, 4);
-    }
-    return premiereDate.slice(0, 4) + "-" + endDate.slice(0, 4);
-}
 
 function SeasonInfo({ item }) {
     return (
@@ -29,4 +24,12 @@ function SeasonInfo({ item }) {
     );
 }
 
-export default SeasonInfo;
+SeasonInfo.propTypes = {
+    item: PropTypes.object,
+};
+
+SeasonInfo.defaultProps = {
+    item: {},
+};
+
+export default React.memo(SeasonInfo);

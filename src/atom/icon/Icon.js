@@ -1,7 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function Icon({ classes }) {
-    return <i className={classes}></i>;
+function Icon({ className }) {
+    return <i className={className}></i>;
 }
 
-export default Icon;
+Icon.propTypes = {
+    className: PropTypes.string,
+};
+
+Icon.defaultProps = {
+    className: "",
+};
+
+export default React.memo(Icon);

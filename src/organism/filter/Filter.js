@@ -1,9 +1,11 @@
 import React from "react";
-import { Icon } from "../../atom";
-import Modal from "../../molecules/Modal/Modal";
-import { useWindowDimension } from "../../util";
-import { Dropdown } from "../../atom";
+
+import  Dropdown  from "../../atom/dropdown";
+import Icon from "../../atom/icon";
+import Modal from "../../molecules/modal";
 import Radio from "../../molecules/radio";
+import { useWindowDimension } from "../../util";
+
 import styles from "./filter.module.css";
 
 function FilterWindow(props) {
@@ -48,7 +50,7 @@ function Filter(props) {
         <>
             {windowDimension.width <= 10 ? (
                 <div>
-                    <Icon classes="fa-solid fa-filter" />
+                    <Icon className="fa-solid fa-filter" />
                     <Modal isOpen={isOpen}>{FilterWindow(props)}</Modal>
                 </div>
             ) : (
@@ -58,4 +60,4 @@ function Filter(props) {
     );
 }
 
-export default Filter;
+export default React.memo(Filter);

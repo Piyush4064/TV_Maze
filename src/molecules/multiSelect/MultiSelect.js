@@ -1,13 +1,12 @@
-import React from 'react';
-
+import React from "react";
 
 function MultiSelect() {
-  return (
-    <div>
-        <input type="checkbox"/>
-        <div>something</div>
-    </div>
-  )
+    return (
+        <div>
+            <input type="checkbox" />
+            <div>something</div>
+        </div>
+    );
 }
 
-export default MultiSelect
+export default React.memo(MultiSelect);

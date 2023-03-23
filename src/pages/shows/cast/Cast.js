@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import styles from "./cast.module.css";
-import Card from "../../../organism/card/Card";
+import Card from "../../../organism/card";
 import CastInfo from "../../../molecules/castInfo";
-import ShowDetails from "../../../templates/showDetails/ShowDetails";
 import { fetchGetRequest } from "../../../api/api";
+import ShowDetails from "../../../templates/showDetails";
+
+import styles from "./cast.module.css";
 
 function Cast() {
     const { id, name } = useParams();
@@ -41,4 +42,4 @@ function Cast() {
     );
 }
 
-export default Cast;
+export default React.memo(Cast);

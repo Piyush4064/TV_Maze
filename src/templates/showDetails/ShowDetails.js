@@ -1,18 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import MovieNav from "../../molecules/movieNav";
 
 import styles from "./showDetails.module.css";
-import MovieNav from "../../molecules/MovieNav";
 
-function ShowDetails(props) {
+function ShowDetails({ showTitle, ...props }) {
     return (
         <div className={styles.showDetails}>
-            {props.showTitle && (
-                <h1 className={styles.showDetails__title}>{props.showTitle}</h1>
-            )}
+            {showTitle && <h1 className={styles.showDetails__title}>{showTitle}</h1>}
             <MovieNav />
             {props.children}
         </div>
     );
 }
 
-export default ShowDetails;
+ShowDetails.propTypes = {
+    showTitle: PropTypes.string,
+};
+
+ShowDetails.defaultProps = {
+    showTitle: "",
+};
+
+export default React.memo(ShowDetails);

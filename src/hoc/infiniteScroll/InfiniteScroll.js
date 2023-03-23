@@ -1,51 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
 
-import Card from "../../organism/card";
-import SkeletonCardList from "../../organism/skeletonCardList/SkeletonCardList";
+import SkeletonCardList from "../../organism/skeletonCardList";
 
 function InfiniteScroll({
     url,
-    url2,
     favourite = true,
     requestFrom = null,
     onScrollData,
     ...props
 }) {
-    const [items, setItems] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
     const [loaded, setLoaded] = useState(true);
 
+    const fetchData = useCallback(
+        async (page) => {
+            setLoaded(false);
+            if (onScrollData(page) === null) {
+                setHasMore(false);
+            }
+            setLoaded(true);
+        },
+        [onScrollData]
+    );
+
     useEffect(() => {
         fetchData(page);
-    }, [page]);
+    }, [fetchData, page]);
 
-    const fetchData = async (page) => {
-        setLoaded(false);
-        onScrollData(page);
-        setLoaded(true);
-    };
-
-    const onScroll = () => {
+    const onScroll = useCallback(() => {
         const scrollTop = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight;
         const clientHeight = document.documentElement.clientHeight;
         if (scrollTop + clientHeight >= scrollHeight) {
-            setPage(page + 1);
+            setPage((prevData) => prevData + 1);
         }
-    };
+    }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, [items]);
+    }, [onScroll]);
 
     return (
         <div className="container">
             {props.children}
             {!loaded && hasMore && <SkeletonCardList />}
+            {!hasMore && <h1>End Content</h1>}
         </div>
     );
 }
 
-export default InfiniteScroll;
+InfiniteScroll.propTypes = {
+    url: PropTypes.string,
+    favourite: PropTypes.bool,
+    requestFrom: PropTypes.string,
+    onScrollData: PropTypes.func,
+};
+
+InfiniteScroll.defaultProps = {
+    url: "",
+    favourite: true,
+    requestFrom: "",
+    onScrollData: () => null,
+};
+
+export default React.memo(InfiniteScroll);

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
-import styles from "./season.module.css";
-import Card from "../../../organism/card/Card";
-import SeasonInfo from "../../../molecules/seasonInfo";
 
-import ShowDetails from "../../../templates/showDetails/ShowDetails";
+import Card from "../../../organism/card";
 import { fetchGetRequest } from "../../../api/api";
+import SeasonInfo from "../../../molecules/seasonInfo";
+import ShowDetails from "../../../templates/showDetails";
+
+import styles from "./season.module.css";
 
 function Season() {
     const { id, name } = useParams();
@@ -35,4 +35,4 @@ function Season() {
     );
 }
 
-export default Season;
+export default React.memo(Season);

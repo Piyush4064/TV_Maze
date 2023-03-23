@@ -1,27 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Input } from "../../atom";
+
 import { debounce } from "../../util";
+
+import Input from "../../atom/input";
+
 import "./searchbar.css";
 
 function SearchBar(props) {
-
     const [searchvalue, setSearchValue] = useState("");
-    const navigate =  useNavigate();
-    
-    const onSearchHandler = (event) => {
-        const { onSearch } = props;
-        setSearchValue(event.target.value);
-        onSearch(event);
-    };
-    
-    const onSearch  = debounce(onSearchHandler, 1000);
-    
+    const navigate = useNavigate();
 
-    const onSearchClick = (value) => {
-        const link = '/show/' + value.show.id + '/' + value.show.name;
+    const onSearchHandler = useCallback(
+        (event) => {
+            const { onSearch } = props;
+            setSearchValue(event.target.value);
+            onSearch(event);
+        },
+        [props]
+    );
+
+    const onSearch = debounce(onSearchHandler, 500);
+
+    const onSearchClick = useCallback((value) => {
+        const link = "/show/" + value.show.id + "/" + value.show.name;
         navigate(link);
-    }
+    },[navigate]);
 
     return (
         <div className="searchbar">
@@ -36,7 +40,11 @@ function SearchBar(props) {
             {props.searchData.length !== 0 && (
                 <div className="searchbar__dropdown">
                     {props.searchData.map((data) => (
-                        <div key={data.show.id} className="searchbar__dropdowncontent" onClick={() => onSearchClick(data)}>
+                        <div
+                            key={data.show.id}
+                            className="searchbar__dropdowncontent"
+                            onClick={() => onSearchClick(data)}
+                        >
                             {data.show.name}
                         </div>
                     ))}
@@ -44,9 +52,6 @@ function SearchBar(props) {
             )}
         </div>
     );
-};
+}
 
-
-
-
-export default SearchBar;
+export default React.memo(SearchBar);

@@ -1,23 +1,27 @@
-import React from "react";
-import dummyData from "../../dummy/filter.dummy";
-import Filter from "../../organism/filter";
-import InfiniteScroll from "../../hoc/infiniteScroll";
-import styles from "./show.module.css";
-import Card from "../../organism/card/Card";
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+
+import Card from "../../organism/card";
 import { fetchGetRequest } from "../../api/api";
+import InfiniteScroll from "../../hoc/infiniteScroll";
+
+import styles from "./show.module.css";
 
 function Show({ url, favourite = true, requestFrom = null }) {
     const [items, setItems] = React.useState([]);
 
-    async function onScrollData(page) {
-        (async () => {
-            const data = await fetchGetRequest(url + page);
-            if (data === null) {
-                return;
-            }
-            setItems([...items, ...data]);
-        })();
-    }
+    const onScrollData = useCallback(
+        (page) => {
+            (async () => {
+                const data = await fetchGetRequest(url + page);
+                if (data === null) {
+                    return null;
+                }
+                setItems([...items, ...data]);
+            })();
+        },
+        [items, url]
+    );
 
     return (
         <div className={styles.show}>
@@ -42,4 +46,16 @@ function Show({ url, favourite = true, requestFrom = null }) {
     );
 }
 
-export default Show;
+Show.propTypes = {
+    url: PropTypes.string,
+    favourite: PropTypes.bool,
+    requestFrom: PropTypes.string,
+};
+
+Show.defaultProps = {
+    url: "",
+    favourite: true,
+    requestFrom: null,
+};
+
+export default React.memo(Show);

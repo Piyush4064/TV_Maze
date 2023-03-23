@@ -1,5 +1,6 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React , {useEffect, useCallback} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import styles from "./breadcrumb.module.css";
 
 function Breadcrumb() {
@@ -8,7 +9,7 @@ function Breadcrumb() {
     const navigate = useNavigate();
     const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([{name: "Home",link: '/'}]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const pathParser = () => {
             var urlPath = location.pathname.split('/');
             const pathlist = [];
@@ -31,9 +32,9 @@ function Breadcrumb() {
         pathParser();
     }, [location]);
 
-    const onBreadCrumbClick = (link) => {
+    const onBreadCrumbClick = useCallback((link) => {
         navigate(link);
-    }
+    }, [navigate])
 
     return (
         <div>
@@ -46,4 +47,4 @@ function Breadcrumb() {
     );
 }
 
-export default Breadcrumb;
+export default React.memo(Breadcrumb);

@@ -1,9 +1,9 @@
 import React from "react";
-import Show from "../../../templates/show/Show";
+
+import Show from "../../../templates/show";
+import {URL} from "./constant"
 
 import styles from "./people.module.css";
-
-const URL = "https://api.tvmaze.com/people?page=";
 
 function People() {
     return (
@@ -14,4 +14,4 @@ function People() {
     );
 }
 
-export default People;
+export default React.memo(People);

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import Table from "../../../organism/table/Table";
-import NavBarEpisode from "../../../molecules/navBarEpisode/NavBarEpisode";
-import { useParams } from "react-router-dom";
-import ShowDetails from "../../../templates/showDetails/ShowDetails";
-import styles from "./episode.module.css";
 import { fetchGetRequest } from "../../../api/api";
+import NavBarEpisode from "../../../molecules/navBarEpisode";
+import ShowDetails from "../../../templates/showDetails";
+import Table from "../../../organism/table";
+import { useParams } from "react-router-dom";
+
+import styles from "./episode.module.css";
 
 function Episode() {
     const { id, name } = useParams();
@@ -39,4 +40,4 @@ function Episode() {
     );
 }
 
-export default Episode;
+export default React.memo(Episode);

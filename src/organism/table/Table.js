@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-
-import { Icon } from "../../atom";
-
-import styles from "./table.module.css";
+import PropTypes from "prop-types";
 
 import { fetchGetRequest } from "../../api/api";
+import Icon from "../../atom/icon";
+
+import styles from "./table.module.css";
 
 function Table({ seasonId }) {
     const [episodes, setEpisodes] = useState([]);
@@ -41,13 +41,13 @@ function Table({ seasonId }) {
                                     <td>{item?.airdate}</td>
                                     <td>{item?.name}</td>
                                     <td>
-                                        <Icon classes="fa-solid fa-star" />{" "}
+                                        <Icon className="fa-solid fa-star" />{" "}
                                         {item?.rating?.average}
                                     </td>
                                     <td>
-                                        <Icon classes="fa-solid fa-cloud" />
-                                        <Icon classes="fa-solid fa-eye" />
-                                        <Icon classes="fa-solid fa-ban" />
+                                        <Icon className="fa-solid fa-cloud" />
+                                        <Icon className="fa-solid fa-eye" />
+                                        <Icon className="fa-solid fa-ban" />
                                     </td>
                                 </tr>
                             )
@@ -59,4 +59,13 @@ function Table({ seasonId }) {
     );
 }
 
-export default Table;
+
+Table.propTypes = {
+    seasonId : PropTypes.number,
+};
+
+Table.defaultProps = {
+    seasonId : 0,
+};
+
+export default React.memo(Table);

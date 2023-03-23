@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useCallback} from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../atom";
-import styles from "./navbar.module.css";
+
+import Button from "../../atom/button";
+
 import navbarRoutes from "./navbar.routes";
+
+import styles from "./navbar.module.css";
 
 function Navbar() {
     const navigate = useNavigate();
 
-    const onNavClick = (link) => {
+    const onNavClick = useCallback((link) => {
         navigate(link);
-    };
+    }, [navigate]);
 
     return (
         <div className={styles.navbar}>
@@ -28,4 +31,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default React.memo(Navbar);

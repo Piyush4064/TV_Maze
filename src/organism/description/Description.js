@@ -1,8 +1,9 @@
 import React from "react";
-
-import styles from "./description.module.css";
+import PropTypes from "prop-types";
 
 import CombinedSocialMedia from "../../molecules/combinedSocialMedia";
+
+import styles from "./description.module.css";
 
 function Description({ summary }) {
     return (
@@ -13,4 +14,12 @@ function Description({ summary }) {
     );
 }
 
-export default Description;
+Description.propTypes = {
+    summary : PropTypes.string,
+};
+
+Description.defaultProps = {
+    summary : "",
+};
+
+export default React.memo(Description);

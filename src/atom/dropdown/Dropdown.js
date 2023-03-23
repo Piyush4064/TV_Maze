@@ -1,17 +1,17 @@
-import React from 'react';
+import React, {useCallback} from 'react';
+
 import styles from './dropdown.module.css'
 
-function Dropdown(props) {
-    const onChange = (event) => {
-        const {onChange} = props;
+function Dropdown({onChange, ...props}) {
+    const onChangeHandler = useCallback((event) => {
         onChange(event);
-    }
+    }, [onChange])
 
   return (
     <select 
         className={styles.dropdown}
         name={props.name}
-        onChange={(event) => onChange(event)} 
+        onChange={onChangeHandler} 
         value={props.value}>
         {props.options?.map((option) => (
             <option key={option} value={option}>{option}</option>
@@ -20,4 +20,4 @@ function Dropdown(props) {
   )
 }
 
-export default Dropdown;
+export default React.memo(Dropdown);

@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { replaceSpaceWithDash } from "../../helper";
 
 import styles from "./castInfo.module.css";
 
 function CastInfo({ item }) {
-    const [name, setName] = useState("");
-    useEffect(
-        () => setName(item?.person?.name?.replace(/ /g, "-")),
-        [item?.person?.name]
-    );
+    const name = replaceSpaceWithDash(item?.person?.name);
+    const URL = "/people/" + item?.person?.id + "/" + name;
 
-    let URL = "/people/" + item?.person?.id + "/" + name;
     return (
         <div className={styles.castInfo}>
             <h2 className={styles.castInfo__name}>
@@ -22,4 +21,12 @@ function CastInfo({ item }) {
     );
 }
 
-export default CastInfo;
+CastInfo.propTypes = {
+    item: PropTypes.object,
+};
+
+CastInfo.defaultProps = {
+    item: {},
+};
+
+export default React.memo(CastInfo);

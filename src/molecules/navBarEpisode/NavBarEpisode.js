@@ -1,11 +1,14 @@
-import React from "react";
-
+import React, { useMemo } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import PropTypes from "prop-types";
+
+import { reverseArray } from "./helper";
 
 import styles from "./navBarEpisode.module.css";
 
 function NavBarEpisode({ seasons }) {
-    let data = seasons.slice().reverse();
+    let data = useMemo(() => reverseArray(seasons), [seasons]);
+
     return (
         <nav className={styles.navBarEpisode}>
             {data.map((item) => {
@@ -22,4 +25,12 @@ function NavBarEpisode({ seasons }) {
     );
 }
 
-export default NavBarEpisode;
+NavBarEpisode.propTypes = {
+    seasons: PropTypes.array,
+};
+
+NavBarEpisode.defaultProps = {
+    seasons: [],
+};
+
+export default React.memo(NavBarEpisode);

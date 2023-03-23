@@ -1,15 +1,21 @@
+import React from "react";
 
-import React from 'react';
-import './modal.css';
+import "./modal.css";
 
 function Modal(props) {
-  return (
-    <div className={`sidemodal__container ${props.isOpen === true ? 'fadein' : 'fadeout'}` }>
-        <div className={`sidemodal ${props.isOpen === true ? 'slidein' : 'slideout'}`}>
-            {props.children}
+    return (
+        <div
+            className={`sidemodal__container ${
+                props.isOpen === true ? "fadein" : "fadeout"
+            }`}
+        >
+            <div
+                className={`sidemodal ${props.isOpen === true ? "slidein" : "slideout"}`}
+            >
+                {props.children}
+            </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default Modal
+export default React.memo(Modal);

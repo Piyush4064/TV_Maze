@@ -19,4 +19,4 @@ function SkeletonCardList() {
     );
 }
 
-export default SkeletonCardList;
+export default React.memo(SkeletonCardList);

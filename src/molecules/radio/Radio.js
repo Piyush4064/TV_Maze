@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './radio.module.css';
 
 function Radio(props) {
@@ -18,4 +19,4 @@ function Radio(props) {
   )
 }
 
-export default Radio
+export default React.memo(Radio);

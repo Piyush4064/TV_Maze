@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
-
-import { Icon } from "../../atom";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { getURL } from "./helper";
+import Icon from "../../atom/icon";
+import { IMG_PLACEHOLDER } from "./constant";
+import { replaceSpaceWithDash } from "../../helper";
+import localStorageImage from "../../assets/images.png";
 
 import styles from "./card.module.css";
-
-const IMG_PLACEHOLDER =
-    "https://static.tvmaze.com/images/no-img/no-img-portrait-text.png";
 
 function Card({
     showFooterIcon = true,
@@ -16,35 +18,28 @@ function Card({
     item,
     requestFrom,
 }) {
-    const [name, setName] = useState("");
+    const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
 
-    useEffect(() => setName(item?.name?.replace(/ /g, "-")), [item?.name]);
-
     let URL = useLocation().pathname;
-    if (requestFrom === "people" || requestFrom === "cast") {
-        URL = "/people/" + item.id + "/" + name;
-    } else if (requestFrom === "show" || requestFrom === "knownForShows") {
-        URL = "/show/" + item.id + "/" + name;
-    } 
+    URL = getURL(URL, requestFrom, item, name);
 
     return (
         <div className={styles.card}>
             <Link to={URL}>
-                {/* {imgLoaded ? null : (
+                {imgLoaded ? null : (
                     <img
-                        src="images.png"
+                        src={localStorageImage}
                         alt="placeholder"
                         className={styles.maxHeight}
                     />
-                )} */}
+                )}
                 <img
                     src={item?.image?.medium || IMG_PLACEHOLDER}
                     alt="movie"
                     className={!showFooterName && !showFooterIcon && styles.maxHeight}
-                    loading="lazy"
-                    // style={imgLoaded ? {} : { display: "none" }}
-                    // onLoad={() => setImgLoaded(true)}
+                    style={imgLoaded ? {} : { display: "none" }}
+                    onLoad={() => setImgLoaded(true)}
                 />
             </Link>
 
@@ -61,10 +56,10 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
-                        <Icon classes="fa-regular fa-heart" />
+                        <Icon className="fa-regular fa-heart" />
                         {favourite && (
                             <div>
-                                <Icon classes="fa-regular fa-star " />
+                                <Icon className="fa-regular fa-star " />
                                 <span>{item?.rating.average}</span>
                             </div>
                         )}
@@ -72,7 +67,7 @@ function Card({
                 ) : (
                     <div className={styles.card__footer}>
                         <span className={styles.moviePosterCardFooter}>
-                            <Icon classes="fa-solid fa-heart" />
+                            <Icon className="fa-solid fa-heart" />
                             <span>Follow</span>
                         </span>
                     </div>
@@ -80,5 +75,23 @@ function Card({
         </div>
     );
 }
+
+Card.propTypes = {
+    showFooterIcon: PropTypes.bool,
+    follow: PropTypes.bool,
+    favourite: PropTypes.bool,
+    showFooterName: PropTypes.bool,
+    item: PropTypes.object,
+    requestFrom: PropTypes.string,
+};
+
+Card.defaultProps = {
+    showFooterIcon: true,
+    follow: false,
+    favourite: true,
+    showFooterName: true,
+    item: {},
+    requestFrom: "",
+};
 
 export default React.memo(Card);

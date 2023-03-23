@@ -1,23 +1,22 @@
-import React from 'react';
-import styles from './input.module.css';
+import React, {useCallback} from "react";
 
-function Input(props) {
+import styles from "./input.module.css";
 
-  const onChangeInput = (event) => {
-    const {onChange} = props;
-    onChange(event);
-  }
+function Input({onChange, ...props}) {
+    const onChangeInput = useCallback((event) => {
+        onChange(event);
+    }, [onChange]);
 
-  return (
-    <input 
-    className = {styles[props.type]}
-    name = {props.name}
-    placeholder = {props.placeholder}
-    value = {props.value}
-    onChange = {(event) => onChangeInput(event)}
-    required = {props.required}
-    />
-  )
+    return (
+        <input
+            className={styles[props.type]} // props.className
+            name={props.name}
+            placeholder={props.placeholder}
+            value={props.value}
+            onChange={onChangeInput}
+            required={props.required}
+        />
+    );
 }
 
-export default Input;
+export default React.memo(Input);

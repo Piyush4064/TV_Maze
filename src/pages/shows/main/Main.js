@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Info from "../../../templates/info";
-import ShowDetails from "../../../templates/showDetails/ShowDetails";
+
 import { fetchGetRequest } from "../../../api/api";
+import Info from "../../../templates/info";
+import ShowDetails from "../../../templates/showDetails";
+import {SHOW_FLASHCARD_KEYS_MAP} from "./config"
 
 function Main() {
     const [showDetails, setShowDetails] = useState({});
@@ -21,9 +23,9 @@ function Main() {
     }, [URL]);
     return (
         <ShowDetails showTitle={showDetails.name}>
-            <Info item={showDetails} summary={showDetails.summary} flashCardFor="show" />
+            <Info item={showDetails} summary={showDetails.summary} flashCardDetails={SHOW_FLASHCARD_KEYS_MAP} flashCardFor="Show"/>
         </ShowDetails>
     );
 }
 
-export default Main;
+export default React.memo(Main);

@@ -1,9 +1,9 @@
 import React from "react";
-import Show from "../../../templates/show/Show";
+
+import Show from "../../../templates/show";
+import {URL} from "./constant"
 
 import styles from "./shows.module.css";
-
-const URL = "https://api.tvmaze.com/shows?page=";
 
 function Shows() {
     return (
@@ -14,4 +14,4 @@ function Shows() {
     );
 }
 
-export default Shows;
+export default React.memo(Shows);

@@ -1,19 +1,39 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import Card from "../../organism/card";
-import FlashCard from "../../molecules/flashCard";
 import Description from "../../organism/description";
+import { DESCRIPTION } from "./constant";
+import FlashCard from "../../molecules/flashCard";
+
 import styles from "./info.module.css";
 
-const description =
-    "<p>We don't have a biography for Mike Vogel yet. Hang in there, or go ahead and contribute one.</p>";
-
-function Info({ item, summary = description, flashCardFor}) {
+function Info({ item, summary = DESCRIPTION, flashCardDetails, flashCardFor }) {
     return (
         <div className={styles.main}>
             <Card showFooterName={false} follow={true} item={item} />
             <Description summary={summary} />
-            <FlashCard details={item} flashCardFor={flashCardFor}/>
+            <FlashCard
+                details={item}
+                flashCardDetails={flashCardDetails}
+                flashCardFor={flashCardFor}
+            />
         </div>
     );
 }
 
-export default Info;
+Info.propTypes = {
+    item: PropTypes.object,
+    summary: PropTypes.string,
+    flashCardDetails: PropTypes.object,
+    flashCardFor: PropTypes.string,
+};
+
+Info.defaultProps = {
+    item: {},
+    summary: DESCRIPTION,
+    flashCardDetails: {},
+    flashCardFor: "",
+};
+
+export default React.memo(Info);

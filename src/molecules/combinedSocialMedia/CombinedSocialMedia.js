@@ -1,18 +1,31 @@
 import React from "react";
 
-import { Icon } from "../../atom";
+import IconWithLink from "../iconWithLink";
+
 import styles from "./combinedSocialMedia.module.css";
 
 function CombinedSocialMedia() {
     return (
         <div className={styles.socailMediaIcon}>
             <p>Share this on:</p>
-            <Icon classes="fa-brands fa-facebook" />
-            <Icon classes="fa-brands fa-twitter" />
-            <Icon classes="fa-brands fa-reddit" />
-            <Icon classes="fa-brands fa-tumblr" />
+            <IconWithLink
+                className="fa-brands fa-facebook"
+                link="https://www.facebook.com/"
+            />
+            <IconWithLink
+                className="fa-brands fa-twitter"
+                link="https://www.twitter.com/"
+            />
+            <IconWithLink
+                className="fa-brands fa-reddit"
+                link="https://www.reddit.com/"
+            />
+            <IconWithLink
+                className="fa-brands fa-tumblr"
+                link="https://www.tumblr.com/"
+            />
         </div>
     );
 }
 
-export default CombinedSocialMedia;
+export default React.memo(CombinedSocialMedia);

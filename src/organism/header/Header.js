@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import { fetchGetRequest } from "../../api/api";
 import SearchBar from "../../molecules/searchBar";
+
 import styles from "./header.module.css";
 
 function Header() {
@@ -13,12 +15,12 @@ function Header() {
         setSearchData([]);
     }, [location.pathname]);
 
-    const onSearch = async(event) => {
+    const onSearch = useCallback(async(event) => {
         //api will be called here
         const searchInput  = event.target.value;
         const data = await fetchGetRequest(`https://api.tvmaze.com/search/shows?q=${searchInput}`);
         setSearchData(data);
-    };
+    }, []);
 
     return (
         <div className={styles.header}>
@@ -35,4 +37,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default React.memo(Header);

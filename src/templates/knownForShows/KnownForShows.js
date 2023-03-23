@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-import styles from "./knownForShows.module.css";
 import Card from "../../organism/card";
 import { fetchGetRequest } from "../../api/api";
+
+import styles from "./knownForShows.module.css";
 
 function KnownForShows({ castcredits }) {
     const [showDetail, setShowDetail] = useState([]);
@@ -45,4 +47,12 @@ function KnownForShows({ castcredits }) {
     );
 }
 
-export default KnownForShows;
+KnownForShows.propTypes = {
+    castcredits: PropTypes.array,
+};
+
+KnownForShows.defaultProps = {
+    castcredits: [],
+};
+
+export default React.memo(KnownForShows);

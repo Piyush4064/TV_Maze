@@ -1,23 +1,25 @@
-import React from 'react';
-import styles from './button.module.css'
+import React, { useCallback } from "react";
 
-function Button(props) {
+import styles from "./button.module.css";
 
-  const onClickBtn = (event) => {
-    const {onClick} = props;
-    onClick(event);
-  }
+function Button({ onClick, ...props }) {
+    const onClickBtn = useCallback(
+        (event) => {
+            onClick(event);
+        },
+        [onClick]
+    );
 
-  return (
-    <button
-    className={styles[props.type]}
-    name = {props.name}
-    onClick = {(event) => onClickBtn(event)}
-    disabled = {props.disabled}
-    >
-      {props.children}
-    </button>
-  )
+    return (
+        <button
+            className={styles[props.type]} // props.className
+            name={props.name}
+            onClick={(event) => onClickBtn(event)}
+            disabled={props.disabled}
+        >
+            {props.children}
+        </button>
+    );
 }
 
-export default Button
+export default React.memo(Button);

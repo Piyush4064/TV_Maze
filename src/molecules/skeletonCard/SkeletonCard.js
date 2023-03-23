@@ -1,4 +1,5 @@
 import React from "react";
+
 import style from "./skeletonCard.module.css"; // Import the CSS file for the component
 
 const SkeletonCard = () => {
@@ -15,4 +16,4 @@ const SkeletonCard = () => {
     );
 };
 
-export default SkeletonCard;
+export default React.memo(SkeletonCard);
