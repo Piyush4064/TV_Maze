@@ -1,5 +1,6 @@
 .castInfo {
     padding-left: 0.5rem;
+    max-width: 225px;
 }
 .castInfo__name {
     font-weight: 250;

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./flashCard.module.css";
+import FlashCardInfoDisplay from "../flashCardInfoDisplay/FlashCardInfoDisplay";
 
 const allDays = [
     "Monday",
@@ -25,7 +26,7 @@ function showDays(schedule) {
     } else if (schedule.days === weekDays) {
         return "On Weekdays";
     } else {
-        return schedule.days[0] + "to " + schedule.days.at(-1);
+        return schedule.days[0] + " to " + schedule.days.at(-1);
     }
 }
 
@@ -37,19 +38,37 @@ function showGenres(genres) {
     return allGenres;
 }
 
-function FlashCard({ details }) {
-    return (
+function calcAge(birthday) {
+    var today = new Date();
+    var birthDate = new Date(birthday);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function FlashCard({ details, flashCardFor }) {
+    console.log("details", details);
+    return flashCardFor === "show" ? (
         <div className={styles.flashCard}>
             <h2 className={styles.flashCard__title}>Show Info </h2>
             {details?.network ? (
+                // <FlashCardInfoDisplay heading="Network" content={details?.network?.name + " (2019 - now)"}/>
                 <div>
-                    <strong>Network :</strong>
-                    {details?.network?.name + " (2019 - now)"}
+                    <strong>Network: </strong>
+                    {details?.network?.name +
+                        " (" +
+                        details?.premiered?.slice(0, 4) +
+                        " - " +
+                        (details?.ended ? details?.ended.slice(0, 4) : "now") +
+                        ")"}
                 </div>
             ) : (
                 <div>
                     <strong>Web channel:</strong>
-                    {details?.webChannel?.name + " Disney+ (2019 - now)"}
+                    {details?.webChannel?.name + " (2019 - now)"}
                 </div>
             )}
 
@@ -92,6 +111,30 @@ function FlashCard({ details }) {
             <div>
                 <strong>Official site:</strong>
                 <Link to={details.officialSite}>{details?.officialSite?.slice(4)} </Link>
+            </div>
+        </div>
+    ) : (
+        <div className={styles.flashCard}>
+            <h2 className={styles.flashCard__title}>Show Info </h2>
+            {details?.gender && (
+                <div>
+                    <strong>Gender:</strong>
+                    {" " + details?.gender}
+                </div>
+            )}
+            {details?.birthday && (
+                <div>
+                    <strong>Age:</strong>
+                    {" " + calcAge(details?.birthday)}
+                </div>
+            )}
+            <div>
+                <strong>Birthday:</strong>{" "}
+                {details?.birthday ? details?.birthday : "Unknown"}
+            </div>
+            <div>
+                <strong>Born in:</strong>{" "}
+                {details?.country?.name ? details?.country?.name : "Unknown"}
             </div>
         </div>
     );
