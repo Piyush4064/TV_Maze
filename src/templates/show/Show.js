@@ -6,7 +6,7 @@ import styles from "./show.module.css";
 import Card from "../../organism/card/Card";
 import { fetchGetRequest } from "../../api/api";
 
-function Show({ url, favourite = true, requestFrom = null, onFavourite }) {
+function Show({ url, favourite = true, requestFrom = null, onFavourite, favData }) {
     const [items, setItems] = React.useState([]);
 
     async function onScrollData(page) {
@@ -34,7 +34,8 @@ function Show({ url, favourite = true, requestFrom = null, onFavourite }) {
                             key={item.id}
                             favourite={favourite}
                             requestFrom={requestFrom}
-                            onFavourite={() => onFavourite(item.id)}
+                            onFavourite={() => onFavourite(item)}
+                            follow = {favData?.includes(item)}
                         />
                     </div>
                 ))}

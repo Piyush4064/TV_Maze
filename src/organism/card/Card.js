@@ -73,7 +73,7 @@ function Card({
                 ) : (
                     <div className={styles.card__footer}>
                         <span className={styles.moviePosterCardFooter}>
-                            <Icon classes="fa-solid fa-heart" />
+                            <Icon classes="fa-solid fa-heart" onClick={onFavourite}/>
                             <span>Follow</span>
                         </span>
                     </div>

@@ -17,7 +17,7 @@ const favouriteReducer = (state = initalState, action) => {
             }else{
                 favouriteShows = favouriteShows.filter((id) => id!==action.payload.id)
             }
-            localStorage.setItem(FAVOURITE_SHOW, JSON.stringify(favouriteShows))
+            localStorage.setItem(FAVOURITE_SHOW, JSON.stringify(favouriteShows));
             return{...state, favouriteShows};
 
         case  SET_FAVOURITE_PEOPLE : 
@@ -28,7 +28,7 @@ const favouriteReducer = (state = initalState, action) => {
             }else{
                 favouritePeople = favouritePeople.filter((id) => id!==action.payload.id);
             }
-            localStorage.setItem( SET_FAVOURITE_PEOPLE, JSON.stringify(favouritePeople))
+            localStorage.setItem( FAVOURITE_PEOPLE, JSON.stringify(favouritePeople));
             return{...state, favouritePeople};
 
         default:
