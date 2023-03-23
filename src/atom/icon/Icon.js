@@ -1,7 +1,7 @@
 import React from "react";
 
-function Icon({ classes }) {
-    return <i className={classes}></i>;
+function Icon({ classes, onClick }) {
+    return <i className={classes} onClick={onClick}></i>;
 }
 
 export default Icon;
