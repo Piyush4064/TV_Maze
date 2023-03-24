@@ -25,14 +25,14 @@ function Info({ item, summary = DESCRIPTION, flashCardDetails, flashCardFor }) {
 Info.propTypes = {
     item: PropTypes.object,
     summary: PropTypes.string,
-    flashCardDetails: PropTypes.object,
+    flashCardDetails: PropTypes.array,
     flashCardFor: PropTypes.string,
 };
 
 Info.defaultProps = {
     item: {},
     summary: DESCRIPTION,
-    flashCardDetails: {},
+    flashCardDetails: [],
     flashCardFor: "",
 };
 
