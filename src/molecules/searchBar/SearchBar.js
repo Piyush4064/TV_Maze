@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -9,18 +9,20 @@ import Input from "../../atom/input";
 import "./searchbar.css";
 
 function SearchBar({onSearch, searchData, ...props}) {
-    // const [searchvalue, setSearchValue] = useState("");
+    const [searchValue, setSearchValue] = useState("");
     const navigate = useNavigate();
 
     const onSearchHandler = useCallback(
         (event) => {
-            // setSearchValue(event.target.value);
             onSearch(event);
         },
         [props]
     );
 
-    const onSearchShow = debounce(onSearchHandler, 500);
+    const onSearchShow = (event) => {
+        setSearchValue(event.target.value);
+        debounce(onSearchHandler(event), 500);
+    } 
 
     const onSearchClick = useCallback((value) => {
         const link = "/show/" + value.show.id + "/" + value.show.name;
@@ -32,6 +34,7 @@ function SearchBar({onSearch, searchData, ...props}) {
             <Input
                 type="searchinput"
                 placeholder="search shows and people..."
+                value={searchValue}
                 onChange={(event) =>  onSearchShow(event)}
             />
 
