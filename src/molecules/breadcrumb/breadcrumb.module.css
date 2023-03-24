@@ -16,8 +16,9 @@
     color: #1f4b47;
 }
 
-.breadcrumb  li{
+.breadcrumb li {
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .breadcrumb li:not(:last-child)::after {
