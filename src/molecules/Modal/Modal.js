@@ -1,21 +1,29 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import "./modal.css";
 
-function Modal(props) {
+function Modal({isOpen = false, ...props}) {
     return (
         <div
             className={`sidemodal__container ${
-                props.isOpen === true ? "fadein" : "fadeout"
+                isOpen === true ? "fadein" : "fadeout"
             }`}
         >
             <div
-                className={`sidemodal ${props.isOpen === true ? "slidein" : "slideout"}`}
+                className={`sidemodal ${isOpen === true ? "slidein" : "slideout"}`}
             >
                 {props.children}
             </div>
         </div>
     );
+}
+
+Modal.propTypes = {
+    isOpen : PropTypes.bool
+};
+
+Modal.defaultProps = {
+    isOpen : false
 }
 
 export default React.memo(Modal);
