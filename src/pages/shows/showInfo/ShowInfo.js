@@ -6,7 +6,7 @@ import Info from "../../../templates/info";
 import ShowDetails from "../../../templates/showDetails";
 import {SHOW_FLASHCARD_KEYS_MAP} from "./config"
 
-function Main() {
+function ShowInfo() {
     const [showDetails, setShowDetails] = useState({});
 
     const { id } = useParams();
@@ -28,4 +28,4 @@ function Main() {
     );
 }
 
-export default React.memo(Main);
+export default React.memo(ShowInfo);

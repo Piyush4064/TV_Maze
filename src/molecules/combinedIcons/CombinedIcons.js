@@ -2,9 +2,9 @@ import React from "react";
 
 import IconWithLink from "../iconWithLink";
 
-import styles from "./combinedSocialMedia.module.css";
+import styles from "./combinedIcons.module.css";
 
-function CombinedSocialMedia() {
+function CombinedIcons() {
     return (
         <div className={styles.socailMediaIcon}>
             <p>Share this on:</p>
@@ -28,4 +28,4 @@ function CombinedSocialMedia() {
     );
 }
 
-export default React.memo(CombinedSocialMedia);
+export default React.memo(CombinedIcons);

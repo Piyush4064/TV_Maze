@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { fetchGetRequest } from "../../../api/api";
-import NavBarEpisode from "../../../molecules/navBarEpisode";
+import EpisodeNav from "../../../molecules/episodeNav";
 import ShowDetails from "../../../templates/showDetails";
 import Table from "../../../organism/table";
 import { useParams } from "react-router-dom";
@@ -25,7 +25,7 @@ function Episode() {
 
     return (
         <ShowDetails showTitle={name}>
-            <NavBarEpisode seasons={seasons} />
+            <EpisodeNav seasons={seasons} />
             {seasons.map((item) => {
                 return (
                     <div className={styles.episode} id={"S" + item.number}>

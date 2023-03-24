@@ -1,6 +1,6 @@
 import React from "react";
 
-import Show from "../../../templates/show";
+import InfiniteScrollContainer from "../../../templates/infiniteScrollContainer";
 import {URL} from "./constant"
 import { FAVOURITE_PEOPLE } from "../../../redux/actions/favourite";
 import { useDispatch, useSelector} from 'react-redux';
@@ -19,7 +19,7 @@ function People() {
     return (
         <div className={styles.people}>
             <h1 className={styles.people__title}>People</h1>
-            <Show url={URL} favourite={false} requestFrom="people" onFavourite ={onFavourite} favData={favData}/>
+            <InfiniteScrollContainer url={URL} favourite={false} requestFrom="people" onFavourite ={onFavourite} favData={favData}/>
         </div>
     );
 };

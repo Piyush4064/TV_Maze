@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import CombinedSocialMedia from "../../molecules/combinedSocialMedia";
+import CombinedSocialMedia from "../../molecules/combinedIcons";
 
 import styles from "./description.module.css";
 

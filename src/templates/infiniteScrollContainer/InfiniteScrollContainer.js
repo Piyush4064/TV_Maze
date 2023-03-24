@@ -5,9 +5,9 @@ import Card from "../../organism/card";
 import { fetchGetRequest } from "../../api/api";
 import InfiniteScroll from "../../hoc/infiniteScroll";
 
-import styles from "./show.module.css";
+import styles from "./infiniteScrollContainer.module.css";
 
-function Show({ url, favourite = true, requestFrom = null, onFavourite, favData }) {
+function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, onFavourite, favData }) {
     const [items, setItems] = React.useState([]);
 
     const onScrollData = useCallback(
@@ -58,7 +58,7 @@ function Show({ url, favourite = true, requestFrom = null, onFavourite, favData 
     );
 }
 
-Show.propTypes = {
+InfiniteScrollContainer.propTypes = {
     url: PropTypes.string,
     favourite: PropTypes.bool,
     requestFrom: PropTypes.string,
@@ -66,10 +66,10 @@ Show.propTypes = {
     favData : PropTypes.array
 };
 
-Show.defaultProps = {
+InfiniteScrollContainer.defaultProps = {
     url: "",
     favourite: true,
     requestFrom: null,
 };
 
-export default React.memo(Show);
+export default React.memo(InfiniteScrollContainer);

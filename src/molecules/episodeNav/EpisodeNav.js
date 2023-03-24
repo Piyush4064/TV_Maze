@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 
 import { reverseArray } from "./helper";
 
-import styles from "./navBarEpisode.module.css";
+import styles from "./episodeNav.module.css";
 
-function NavBarEpisode({ seasons }) {
+function EpisodeNav({ seasons }) {
     let data = useMemo(() => reverseArray(seasons), [seasons]);
 
     return (
@@ -25,12 +25,12 @@ function NavBarEpisode({ seasons }) {
     );
 }
 
-NavBarEpisode.propTypes = {
+EpisodeNav.propTypes = {
     seasons: PropTypes.array,
 };
 
-NavBarEpisode.defaultProps = {
+EpisodeNav.defaultProps = {
     seasons: [],
 };
 
-export default React.memo(NavBarEpisode);
+export default React.memo(EpisodeNav);
