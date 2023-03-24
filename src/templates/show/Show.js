@@ -22,12 +22,11 @@ function Show({ url, favourite = true, requestFrom = null }) {
         },
         [items, url]
     );
-
     return (
         <div className={styles.show}>
             {/* <Filter data={dummyData} /> */}
             <InfiniteScroll
-                url={URL}
+                url={url}
                 requestFrom={requestFrom}
                 onScrollData={onScrollData}
             >
