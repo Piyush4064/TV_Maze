@@ -15,7 +15,7 @@ function FavouriteShow() {
    }  
    
   return (
-    <div>
+    <div className={styles.show}>
         <Favourite favData={favoriteShow} onFavourite={onFavourite} favouriteOf={"Shows"}/>
     </div>
   )
