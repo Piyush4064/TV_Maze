@@ -4,7 +4,7 @@ import Navbar from "./molecules/navbar";
 import Breadcrumb from "./molecules/breadcrumb";
 import Show from "./pages/shows";
 import Shows from "./pages/shows/shows/Shows";
-import People from "./pages/people";
+import People from "./pages/people/Index";
 import { Route, Routes } from "react-router-dom";
 
 

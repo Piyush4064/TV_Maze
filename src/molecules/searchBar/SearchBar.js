@@ -1,26 +1,23 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-
+import PropTypes from "prop-types";
 import { debounce } from "../../util";
-
 import Input from "../../atom/input";
-
 import "./searchbar.css";
 
-function SearchBar(props) {
-    const [searchvalue, setSearchValue] = useState("");
+function SearchBar({onSearch, searchData,  ...props}) {
+    // const [searchvalue, setSearchValue] = useState("");
     const navigate = useNavigate();
 
     const onSearchHandler = useCallback(
         (event) => {
-            const { onSearch } = props;
-            setSearchValue(event.target.value);
+            // setSearchValue(event.target.value);
             onSearch(event);
         },
-        [props]
+        [onSearch]
     );
 
-    const onSearch = debounce(onSearchHandler, 500);
+    const onSearchShows = debounce(onSearchHandler, 500);
 
     const onSearchClick = useCallback((value) => {
         const link = "/show/" + value.show.id + "/" + value.show.name;
@@ -32,14 +29,14 @@ function SearchBar(props) {
             <Input
                 type="searchinput"
                 placeholder="search shows and people..."
-                onChange={(event) => onSearch(event)}
+                onChange={(event) => onSearchShows(event)}
             />
 
             {/* <Button type="searchbtn">Search</Button> */}
 
-            {props.searchData.length !== 0 && (
+            {searchData.length !== 0 && (
                 <div className="searchbar__dropdown">
-                    {props.searchData.map((data) => (
+                    {searchData.map((data) => (
                         <div
                             key={data.show.id}
                             className="searchbar__dropdowncontent"
@@ -52,6 +49,15 @@ function SearchBar(props) {
             )}
         </div>
     );
-}
+};
+
+SearchBar.propTypes = {
+    onSearch: PropTypes.string,
+    searchData: PropTypes.array
+};
+
+SearchBar.defaultProps = {
+    searchData : []
+};
 
 export default React.memo(SearchBar);
