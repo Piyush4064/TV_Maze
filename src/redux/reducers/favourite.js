@@ -11,11 +11,11 @@ const favouriteReducer = (state = initalState, action) => {
     switch(action.type){
         case SET_FAVOURITE_SHOW:
             var favouriteShows =  state.favouriteShows;
-            const isShowsFav = favouriteShows.includes(action.payload.id);
-            if(!isShowsFav){
-                favouriteShows = [...favouriteShows, action.payload.id];
+            const isShowsFav = favouriteShows.filter((data) => data.id === action.payload.data.id);
+            if(isShowsFav.length === 0){
+                favouriteShows = [...favouriteShows, action.payload.data];
             }else{
-                favouriteShows = favouriteShows.filter((id) => id!==action.payload.id)
+                favouriteShows = favouriteShows.filter((data) => data.id!==action.payload.data.id)
             }
 
             localStorage.setItem(FAVOURITE_SHOW, JSON.stringify(favouriteShows));
@@ -23,11 +23,11 @@ const favouriteReducer = (state = initalState, action) => {
 
         case  SET_FAVOURITE_PEOPLE : 
             var favouritePeople = state.favouritePeople;
-            const isPeopleFav=  favouritePeople.includes(action.payload.id);
-            if(!isPeopleFav){
-                favouritePeople = [...favouritePeople, action.payload.id];
+            const isPeopleFav=  favouritePeople.filter((data) => data.id === action.payload.data.id);
+            if(isPeopleFav.length === 0){
+                favouritePeople = [...favouritePeople, action.payload.data];
             }else{
-                favouritePeople = favouritePeople.filter((id) => id!==action.payload.id);
+                favouritePeople = favouritePeople.filter((data) => data.id!==action.payload.data.id);
             }
             localStorage.setItem(FAVOURITE_PEOPLE, JSON.stringify(favouritePeople));
             return{...state, favouritePeople};

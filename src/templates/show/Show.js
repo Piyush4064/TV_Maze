@@ -22,6 +22,16 @@ function Show({ url, favourite = true, requestFrom = null, onFavourite, favData 
         },
         [items, url]
     );
+    
+    const isFollow = (item) => {
+        const follow = favData.filter((fav) => fav.id === item.id);
+
+        if(follow.length === 0){
+            return false;
+        }
+
+        return true;
+    }
 
     return (
         <div className={styles.show}>
@@ -39,7 +49,7 @@ function Show({ url, favourite = true, requestFrom = null, onFavourite, favData 
                             favourite={favourite}
                             requestFrom={requestFrom}
                             onFavourite={() => onFavourite(item)}
-                            follow = {favData?.includes(item)}
+                            follow = {isFollow(item)}
                         />
                     </div>
                 ))}
