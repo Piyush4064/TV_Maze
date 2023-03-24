@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { debounce } from "../../util";
 
@@ -7,20 +8,19 @@ import Input from "../../atom/input";
 
 import "./searchbar.css";
 
-function SearchBar(props) {
-    const [searchvalue, setSearchValue] = useState("");
+function SearchBar({onSearch, searchData, ...props}) {
+    // const [searchvalue, setSearchValue] = useState("");
     const navigate = useNavigate();
 
     const onSearchHandler = useCallback(
         (event) => {
-            const { onSearch } = props;
-            setSearchValue(event.target.value);
+            // setSearchValue(event.target.value);
             onSearch(event);
         },
         [props]
     );
 
-    const onSearch = debounce(onSearchHandler, 500);
+    const onSearchShow = debounce(onSearchHandler, 500);
 
     const onSearchClick = useCallback((value) => {
         const link = "/show/" + value.show.id + "/" + value.show.name;
@@ -32,14 +32,14 @@ function SearchBar(props) {
             <Input
                 type="searchinput"
                 placeholder="search shows and people..."
-                onChange={(event) => onSearch(event)}
+                onChange={(event) =>  onSearchShow(event)}
             />
 
             {/* <Button type="searchbtn">Search</Button> */}
 
-            {props.searchData.length !== 0 && (
+            {searchData.length !== 0 && (
                 <div className="searchbar__dropdown">
-                    {props.searchData.map((data) => (
+                    {searchData.map((data) => (
                         <div
                             key={data.show.id}
                             className="searchbar__dropdowncontent"
@@ -53,5 +53,15 @@ function SearchBar(props) {
         </div>
     );
 }
+
+SearchBar.propTypes = {
+    onSearch : PropTypes.func, 
+    searchData: PropTypes.string
+};
+  
+SearchBar.defaultProps = {
+    onSearch : () => null,
+    searchData: ""
+};
 
 export default React.memo(SearchBar);

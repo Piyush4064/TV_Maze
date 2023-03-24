@@ -17,6 +17,7 @@ function Card({
     showFooterName = true,
     item,
     requestFrom,
+    onFavourite
 }) {
     const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -56,7 +57,7 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
-                        <Icon className="fa-regular fa-heart" />
+                        <Icon className="fa-regular fa-heart" onClick={onFavourite}/>
                         {favourite && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
@@ -66,7 +67,7 @@ function Card({
                     </div>
                 ) : (
                     <div className={styles.card__footer}>
-                        <span className={styles.moviePosterCardFooter}>
+                        <span className={styles.moviePosterCardFooter}onClick={onFavourite} >
                             <Icon className="fa-solid fa-heart" />
                             <span>Follow</span>
                         </span>
@@ -83,6 +84,7 @@ Card.propTypes = {
     showFooterName: PropTypes.bool,
     item: PropTypes.object,
     requestFrom: PropTypes.string,
+    onFavourite: PropTypes.func
 };
 
 Card.defaultProps = {

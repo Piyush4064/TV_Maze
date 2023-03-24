@@ -7,7 +7,7 @@ import InfiniteScroll from "../../hoc/infiniteScroll";
 
 import styles from "./show.module.css";
 
-function Show({ url, favourite = true, requestFrom = null }) {
+function Show({ url, favourite = true, requestFrom = null, onFavourite, favData }) {
     const [items, setItems] = React.useState([]);
 
     const onScrollData = useCallback(
@@ -38,6 +38,8 @@ function Show({ url, favourite = true, requestFrom = null }) {
                             key={item.id}
                             favourite={favourite}
                             requestFrom={requestFrom}
+                            onFavourite={() => onFavourite(item)}
+                            follow = {favData?.includes(item)}
                         />
                     </div>
                 ))}
@@ -50,6 +52,8 @@ Show.propTypes = {
     url: PropTypes.string,
     favourite: PropTypes.bool,
     requestFrom: PropTypes.string,
+    onFavourite: PropTypes.func,
+    favData : PropTypes.array
 };
 
 Show.defaultProps = {
