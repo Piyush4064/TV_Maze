@@ -14,20 +14,16 @@ function InfiniteScroll({
     const [page, setPage] = useState(1);
     const [loaded, setLoaded] = useState(true);
 
-    const fetchData = useCallback(
-        async (page) => {
+    useEffect(() => {
+        const fetchData = async (page) => {
             setLoaded(false);
             if (onScrollData(page) === null) {
                 setHasMore(false);
             }
             setLoaded(true);
-        },
-        [onScrollData]
-    );
-
-    useEffect(() => {
+        };
         fetchData(page);
-    }, [fetchData, page]);
+    }, [page]);
 
     const onScroll = useCallback(() => {
         const scrollTop = document.documentElement.scrollTop;
