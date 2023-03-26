@@ -64,7 +64,7 @@ function Card({
                         {favourite && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
-                                <span>{item?.rating.average}</span>
+                                <span>{item?.rating?.average}</span>
                             </div>
                         )}
                     </div>
