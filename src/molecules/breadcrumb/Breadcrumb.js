@@ -15,7 +15,7 @@ function Breadcrumb() {
             const pathlist = [];
             
             urlPath.forEach((path, index) => {
-                if(path === ""){
+                if(!path){
                     if(index===0){
                         pathlist.push({name: "Home", link: "/"});
                     }
@@ -23,9 +23,11 @@ function Breadcrumb() {
                     const lastele =  pathlist[pathlist.length - 1];
                     const nextlink = lastele.link + path + "/";
                     pathlist.push({name: path, link: nextlink});
-                    setBreadCrumbRoute(pathlist);
+                    
                 }
             })
+
+            setBreadCrumbRoute(pathlist);
         };
 
         pathParser();
