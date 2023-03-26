@@ -23,7 +23,6 @@ function Breadcrumb() {
                     const lastele =  pathlist[pathlist.length - 1];
                     const nextlink = lastele.link + path + "/";
                     pathlist.push({name: path, link: nextlink});
-
                     setBreadCrumbRoute(pathlist);
                 }
             })

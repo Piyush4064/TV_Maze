@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MovieNav from "../../molecules/movieNav";
+import MovieNav from "../../molecules/MovieNav";
 
 import styles from "./showDetails.module.css";
 
