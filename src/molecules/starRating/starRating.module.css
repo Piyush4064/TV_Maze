@@ -1,0 +1,8 @@
+.starRating {
+    padding-top: 1rem;
+}
+
+.starRating__rating {
+    padding-left: 0.4rem;
+    font-weight: bold;
+}

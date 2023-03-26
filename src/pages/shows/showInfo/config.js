@@ -1,38 +1,4 @@
-const allDays = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-];
-const weekends = allDays.slice(-2);
-const weekDays = allDays.slice(0, -2);
-
-function showDays(schedule) {
-    if (schedule.days === allDays) {
-        return "All days";
-    } else if (schedule.days === weekends) {
-        return "On Weekends";
-    } else if (schedule.days.length === 1) {
-        return schedule.days[0];
-    } else if (schedule.days === weekDays) {
-        return "On Weekdays";
-    } else {
-        return schedule.days[0] + " to " + schedule.days.at(-1);
-    }
-}
-
-function showGenres(genres) {
-    let allGenres = genres?.reduce(function (result, item) {
-        return result + item + " | ";
-    }, "");
-    if (allGenres && allGenres.length > 0) {
-        allGenres = allGenres.slice(0, -2);
-    }
-    return allGenres;
-}
+import { showDays, showGenres } from "./helper";
 
 const SHOW_FLASHCARD_KEYS = {
     NETWORK: "Network",
@@ -40,6 +6,7 @@ const SHOW_FLASHCARD_KEYS = {
     STATUS: "Status",
     TYPE: "Show Type",
     GENRES: "Genres",
+    OFFICIAL_SITE: "Official Site",
 };
 
 export const SHOW_FLASHCARD_KEYS_MAP = [
@@ -80,5 +47,9 @@ export const SHOW_FLASHCARD_KEYS_MAP = [
     {
         label: SHOW_FLASHCARD_KEYS.GENRES,
         contentReader: (data) => showGenres(data?.genres),
+    },
+    {
+        label: SHOW_FLASHCARD_KEYS.OFFICIAL_SITE,
+        contentReader: (data) => data.officialSite,
     },
 ];

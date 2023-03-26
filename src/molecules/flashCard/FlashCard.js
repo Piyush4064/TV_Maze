@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import StarRating from "../../molecules/starRating";
@@ -17,7 +18,11 @@ function FlashCard({ details, flashCardDetails, flashCardFor }) {
                 return (
                     <div key={index}>
                         <strong>{item.label}: </strong>
-                        {content}
+                        {item.label === "Official Site" ? (
+                            <Link to={content}>{content}</Link>
+                        ) : (
+                            content
+                        )}
                     </div>
                 );
             })}
