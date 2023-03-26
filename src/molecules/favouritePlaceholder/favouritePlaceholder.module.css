@@ -1,0 +1,12 @@
+.favouritePlaceholder {
+    display: flex;
+    align-items: center;
+    height: 40vh;
+}
+
+.favouritePlaceholder__title {
+    font-weight: 200;
+    font-size: xx-large;
+    color: gray;
+    opacity: 60%;
+}

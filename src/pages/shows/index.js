@@ -1,10 +1,11 @@
 import React from "react";
-import Shows from "./shows/Shows";
-import Cast from "./cast/Cast";
-import Episode from "./episode/Episode";
-import Season from "./season/Season";
-import ShowInfo from "./showInfo/ShowInfo";
 import { Route, Routes } from "react-router-dom";
+
+import Cast from "./cast";
+import Episode from "./episode";
+import Season from "./season";
+import ShowInfo from "./showInfo";
+import Shows from "./shows";
 
 function ShowIndex() {
     return (

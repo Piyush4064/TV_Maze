@@ -1,0 +1,17 @@
+.footer {
+    width: 78%;
+    margin: 0 auto;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 0.5px black solid;
+}
+
+.footer__title {
+    font-weight: 200;
+    margin-bottom: -1rem;
+}
+.footer_icons {
+    margin-top: 0rem;
+}

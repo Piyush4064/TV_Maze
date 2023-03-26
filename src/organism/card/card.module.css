@@ -6,7 +6,7 @@
     flex-shrink: 1;
     flex-grow: 1;
     border-radius: 0.5rem;
-    
+    overflow: hidden;
 }
 
 .card__movieName {

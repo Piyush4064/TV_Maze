@@ -7,7 +7,13 @@ import InfiniteScroll from "../../hoc/infiniteScroll";
 
 import styles from "./infiniteScrollContainer.module.css";
 
-function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, onFavourite, favData }) {
+function InfiniteScrollContainer({
+    url,
+    favourite = true,
+    requestFrom = null,
+    onFavourite,
+    favData,
+}) {
     const [items, setItems] = React.useState([]);
 
     const onScrollData = useCallback(
@@ -22,25 +28,21 @@ function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, on
         },
         [items, url]
     );
-    
+
     const isFollow = (item) => {
         const follow = favData.filter((fav) => fav.id === item.id);
 
-        if(follow.length === 0){
+        if (follow.length === 0) {
             return false;
         }
 
         return true;
-    }
+    };
 
     return (
         <div className={styles.show}>
             {/* <Filter data={dummyData} /> */}
-            <InfiniteScroll
-                url={URL}
-                requestFrom={requestFrom}
-                onScrollData={onScrollData}
-            >
+            <InfiniteScroll requestFrom={requestFrom} onScrollData={onScrollData}>
                 {items.map((item, index) => (
                     <div key={index}>
                         <Card
@@ -49,7 +51,7 @@ function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, on
                             favourite={favourite}
                             requestFrom={requestFrom}
                             onFavourite={() => onFavourite(item)}
-                            follow = {isFollow(item)}
+                            follow={isFollow(item)}
                         />
                     </div>
                 ))}
@@ -63,13 +65,15 @@ InfiniteScrollContainer.propTypes = {
     favourite: PropTypes.bool,
     requestFrom: PropTypes.string,
     onFavourite: PropTypes.func,
-    favData : PropTypes.array
+    favData: PropTypes.array,
 };
 
 InfiniteScrollContainer.defaultProps = {
     url: "",
     favourite: true,
     requestFrom: null,
+    onFavourite: () => null,
+    favData: [],
 };
 
 export default React.memo(InfiniteScrollContainer);
