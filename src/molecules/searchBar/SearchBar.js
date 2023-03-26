@@ -7,25 +7,24 @@ import { debounce } from "../../util";
 import Input from "../../atom/input";
 
 import "./searchbar.css";
+import { replaceSpaceWithDash } from "../../helper";
 
 function SearchBar({onSearch, searchData, ...props}) {
-    const [searchValue, setSearchValue] = useState("");
     const navigate = useNavigate();
 
     const onSearchHandler = useCallback(
         (event) => {
-            onSearch(event);
+        
+            debounce(onSearch(event), 500);
         },
-        [props]
+        [onSearch]
     );
 
-    const onSearchShow = (event) => {
-        setSearchValue(event.target.value);
-        debounce(onSearchHandler(event), 500);
-    } 
+    const onSearchShow =  debounce(onSearchHandler, 500);
 
     const onSearchClick = useCallback((value) => {
-        const link = "/show/" + value.show.id + "/" + value.show.name;
+        const name = replaceSpaceWithDash(value.show.name)
+        const link = "/show/" + value.show.id + "/" + name;
         navigate(link);
     },[navigate]);
 
@@ -34,7 +33,6 @@ function SearchBar({onSearch, searchData, ...props}) {
             <Input
                 type="searchinput"
                 placeholder="search shows and people..."
-                value={searchValue}
                 onChange={(event) =>  onSearchShow(event)}
             />
 

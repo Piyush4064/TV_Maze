@@ -1,5 +1,5 @@
 import React , {useEffect, useCallback} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 
 import styles from "./breadcrumb.module.css";
 
@@ -8,6 +8,7 @@ function Breadcrumb() {
     const location = useLocation();
     const navigate = useNavigate();
     const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([{name: "Home",link: '/'}]);
+
 
     useEffect(() => {
         const pathParser = () => {
@@ -23,7 +24,6 @@ function Breadcrumb() {
                     const lastele =  pathlist[pathlist.length - 1];
                     const nextlink = lastele.link + path + "/";
                     pathlist.push({name: path, link: nextlink});
-                    
                 }
             })
 
