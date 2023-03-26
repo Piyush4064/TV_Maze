@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./input.module.css";
 
-function Input({onChange, type, name, placeholder, value, required, ...props}) {
+function Input({onChange, type, name, placeholder, required, ...props}) {
     const onChangeInput = useCallback((event) => {
         onChange(event);
     }, [onChange]);
@@ -13,7 +13,6 @@ function Input({onChange, type, name, placeholder, value, required, ...props}) {
             className={styles[type]} // props.className
             name={name}
             placeholder={placeholder}
-            value={value}
             onChange={onChangeInput}
             required={required}
         />
@@ -25,7 +24,6 @@ Input.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
-  value: PropTypes.string,
   required: PropTypes.bool
 };
 
@@ -34,7 +32,6 @@ Input.defaultProps = {
   type: "",
   name: "",
   placeholder: "",
-  value: "",
   required: false
 };
 

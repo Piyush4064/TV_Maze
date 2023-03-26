@@ -23,7 +23,7 @@ function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, on
         [items, url]
     );
     
-    const isFollow = (item) => {
+    const isFavourite = (item) => {
         const follow = favData.filter((fav) => fav.id === item.id);
 
         if(follow.length === 0){
@@ -49,7 +49,8 @@ function InfiniteScrollContainer({ url, favourite = true, requestFrom = null, on
                             favourite={favourite}
                             requestFrom={requestFrom}
                             onFavourite={() => onFavourite(item)}
-                            follow = {isFollow(item)}
+                            follow = {false}
+                            isFavourite = {isFavourite(item)}
                         />
                     </div>
                 ))}
