@@ -1,5 +1,6 @@
 import React , {useEffect, useCallback} from "react";
 import { useLocation, useNavigate} from "react-router-dom";
+import { isNumeric } from "../../helper";
 
 import styles from "./breadcrumb.module.css";
 
@@ -14,6 +15,7 @@ function Breadcrumb() {
         const pathParser = () => {
             var urlPath = location.pathname.split('/');
             const pathlist = [];
+            var prevLink = '/';
             
             urlPath.forEach((path, index) => {
                 if(!path){
@@ -21,9 +23,12 @@ function Breadcrumb() {
                         pathlist.push({name: "Home", link: "/"});
                     }
                 }else{
-                    const lastele =  pathlist[pathlist.length - 1];
-                    const nextlink = lastele.link + path + "/";
-                    pathlist.push({name: path, link: nextlink});
+                    const nextlink = prevLink + path + "/";
+
+                    if(!isNumeric(path)){
+                        pathlist.push({name: path, link: nextlink});
+                    }
+                    prevLink = nextlink;
                 }
             })
 
