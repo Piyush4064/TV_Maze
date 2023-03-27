@@ -9,3 +9,15 @@ export function isNumeric(str) {
 export function getUniqueKey(index = 0) {
     return new Date().valueOf() + index + Math.random() * 100;
 }
+
+
+export const isElementPresent = (favData, item) => {
+    const follow = favData.filter((fav) => fav.id === item.id);
+
+    if (follow.length === 0) {
+        return false;
+    }
+
+    return true;
+};
+

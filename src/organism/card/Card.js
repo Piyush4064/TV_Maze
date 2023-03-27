@@ -19,7 +19,8 @@ function Card({
     item,
     requestFrom,
     onFavourite,
-    isFavourite,
+    isFavourite  = false,
+    isStarShow = true
 }) {
     const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -67,6 +68,13 @@ function Card({
                         )}
 
                         {favourite && (
+
+                      
+                        {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
+                        <Icon className="fa-solid fa-heart" onClick={onFavourite}/>
+                        }
+                        
+                        {favourite && isStarShow && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
                                 <span>{item?.rating?.average}</span>
@@ -96,7 +104,8 @@ Card.propTypes = {
     item: PropTypes.object,
     requestFrom: PropTypes.string,
     onFavourite: PropTypes.func,
-    isFavourite: PropTypes.bool,
+    isFavourite : PropTypes.bool,
+    isStarShow : PropTypes.bool
 };
 
 Card.defaultProps = {
@@ -107,7 +116,8 @@ Card.defaultProps = {
     item: {},
     requestFrom: "",
     onFavourite: () => null,
-    isFavourite: false,
+    isFavourite : true,
+    isStarShow : true
 };
 
 export default React.memo(Card);
