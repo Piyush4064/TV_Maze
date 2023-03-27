@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from "./favouritePlaceholder.module.css";
 
@@ -12,4 +13,12 @@ function FavouritePlaceholder({ favouritePlaceholderFor }) {
     );
 }
 
-export default FavouritePlaceholder;
+FavouritePlaceholder.propTypes = {
+    requestFrom: PropTypes.string,
+};
+
+FavouritePlaceholder.defaultProps = {
+    requestFrom: "",
+};
+
+export default React.memo(FavouritePlaceholder);

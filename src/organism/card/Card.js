@@ -19,8 +19,7 @@ function Card({
     item,
     requestFrom,
     onFavourite,
-    isFavourite  = false
-
+    isFavourite,
 }) {
     const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -41,7 +40,9 @@ function Card({
                 <img
                     src={item?.image?.medium || noImage}
                     alt="movie"
-                    className={!showFooterName && !showFooterIcon && styles.maxHeight}
+                    className={
+                        !showFooterName && !showFooterIcon ? styles.maxHeight : undefined
+                    }
                     style={imgLoaded ? {} : { display: "none" }}
                     onLoad={() => setImgLoaded(true)}
                 />
@@ -55,11 +56,12 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
-                      
-                        {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
-                        <Icon className="fa-solid fa-heart" onClick={onFavourite}/>
-                        }
-                        
+                        {isFavourite === false ? (
+                            <Icon className="fa-regular fa-heart" onClick={onFavourite} />
+                        ) : (
+                            <Icon className="fa-solid fa-heart" onClick={onFavourite} />
+                        )}
+
                         {favourite && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
@@ -90,7 +92,7 @@ Card.propTypes = {
     item: PropTypes.object,
     requestFrom: PropTypes.string,
     onFavourite: PropTypes.func,
-    isFavourite : PropTypes.bool
+    isFavourite: PropTypes.bool,
 };
 
 Card.defaultProps = {
@@ -101,7 +103,7 @@ Card.defaultProps = {
     item: {},
     requestFrom: "",
     onFavourite: () => null,
-    isFavourite : true
+    isFavourite: false,
 };
 
 export default React.memo(Card);

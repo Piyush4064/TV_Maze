@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import {showPremiereDate} from "./helper";
+import { showPremiereDate } from "./helper";
 
 import styles from "./seasonInfo.module.css";
 
@@ -17,9 +17,9 @@ function SeasonInfo({ item }) {
                 {item?.premiereDate !== null &&
                     showPremiereDate(item?.premiereDate, item?.endDate)}
             </h3>
-            <p>
+            <div>
                 <div dangerouslySetInnerHTML={{ __html: item.summary }} />
-            </p>{" "}
+            </div>{" "}
         </div>
     );
 }

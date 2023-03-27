@@ -11,8 +11,6 @@ function Navbar() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log(location);
-
     const onNavClick = useCallback((link) => {
         navigate(link);
     }, [navigate]);

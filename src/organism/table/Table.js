@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 import { fetchGetRequest } from "../../api/api";
 import Icon from "../../atom/icon";
+import { getUniqueKey } from "../../helper";
 
 import styles from "./table.module.css";
 
 function Table({ seasonId }) {
     const [episodes, setEpisodes] = useState([]);
     const URL = "https://api.tvmaze.com/seasons/" + seasonId + "/episodes";
+
     useEffect(() => {
         (async () => {
             const data = await fetchGetRequest(URL);
@@ -22,7 +24,7 @@ function Table({ seasonId }) {
 
     return (
         <div>
-            <table class={styles.table}>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th className={styles.number}>Number</th>
@@ -33,10 +35,10 @@ function Table({ seasonId }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {episodes.map((item) => {
+                    {episodes.map((item, index) => {
                         return (
                             item.number && (
-                                <tr>
+                                <tr key={getUniqueKey(index)}>
                                     <td>{item?.number}</td>
                                     <td>{item?.airdate}</td>
                                     <td>{item?.name}</td>
@@ -59,13 +61,12 @@ function Table({ seasonId }) {
     );
 }
 
-
 Table.propTypes = {
-    seasonId : PropTypes.number,
+    seasonId: PropTypes.number,
 };
 
 Table.defaultProps = {
-    seasonId : 0,
+    seasonId: 0,
 };
 
 export default React.memo(Table);

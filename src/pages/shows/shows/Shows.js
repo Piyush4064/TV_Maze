@@ -13,7 +13,6 @@ function Shows() {
 
     const onFavourite = useCallback(
         (id) => {
-            console.log("yes");
             dispatch(FAVOURITE_SHOW(id));
         },
         [dispatch]

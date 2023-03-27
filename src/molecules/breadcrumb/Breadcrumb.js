@@ -1,36 +1,37 @@
-import React , {useEffect, useCallback} from "react";
-import { useLocation, useNavigate} from "react-router-dom";
+import React, { useEffect, useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { isNumeric } from "../../helper";
 
 import styles from "./breadcrumb.module.css";
 
 function Breadcrumb() {
-
     const location = useLocation();
     const navigate = useNavigate();
-    const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([{name: "Home",link: '/'}]);
-
+    const [breadCrumbRoute, setBreadCrumbRoute] = React.useState([
+        { name: "Home", link: "/" },
+    ]);
 
     useEffect(() => {
         const pathParser = () => {
-            var urlPath = location.pathname.split('/');
+            var urlPath = location.pathname.split("/");
             const pathlist = [];
-            var prevLink = '/';
-            
+            var prevLink = "/";
+
             urlPath.forEach((path, index) => {
-                if(!path){
-                    if(index===0){
-                        pathlist.push({name: "Home", link: "/"});
+                if (!path) {
+                    if (index === 0) {
+                        pathlist.push({ name: "Home", link: "/" });
                     }
-                }else{
+                } else {
                     const nextlink = prevLink + path + "/";
 
-                    if(!isNumeric(path)){
-                        pathlist.push({name: path, link: nextlink});
+                    if (!isNumeric(path)) {
+                        pathlist.push({ name: path, link: nextlink });
                     }
                     prevLink = nextlink;
                 }
-            })
+            });
 
             setBreadCrumbRoute(pathlist);
         };
@@ -38,15 +39,25 @@ function Breadcrumb() {
         pathParser();
     }, [location]);
 
-    const onBreadCrumbClick = useCallback((link) => {
-        navigate(link);
-    }, [navigate])
+    const onBreadCrumbClick = useCallback(
+        (link) => {
+            navigate(link);
+        },
+        [navigate]
+    );
 
     return (
         <div>
-            <nav aria-label="Breadcrumb" class={styles.breadcrumb}>
+            <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
                 <ul>
-                    {breadCrumbRoute.map((route) => <li key={route.name} onClick={() => onBreadCrumbClick(route.link)}>{route.name}</li>)}
+                    {breadCrumbRoute.map((route) => (
+                        <li
+                            key={route.name}
+                            onClick={() => onBreadCrumbClick(route.link)}
+                        >
+                            {route.name}
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </div>

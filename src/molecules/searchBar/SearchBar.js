@@ -36,8 +36,6 @@ function SearchBar({onSearch, searchData, ...props}) {
                 onChange={(event) =>  onSearchShow(event)}
             />
 
-            {/* <Button type="searchbtn">Search</Button> */}
-
             {searchData.length !== 0 && (
                 <div className="searchbar__dropdown">
                     {searchData.map((data) => (

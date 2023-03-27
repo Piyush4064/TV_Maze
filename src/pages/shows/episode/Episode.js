@@ -5,6 +5,7 @@ import { fetchGetRequest } from "../../../api/api";
 import EpisodeNav from "../../../molecules/episodeNav";
 import ShowDetails from "../../../templates/showDetails";
 import Table from "../../../organism/table";
+import { getUniqueKey } from "../../../helper";
 
 import styles from "./episode.module.css";
 
@@ -26,9 +27,13 @@ function Episode() {
     return (
         <ShowDetails showTitle={name}>
             <EpisodeNav seasons={seasons} />
-            {seasons.map((item) => {
+            {seasons.map((item, index) => {
                 return (
-                    <div className={styles.episode} id={"S" + item.number}>
+                    <div
+                        className={styles.episode}
+                        id={"S" + item.number}
+                        key={getUniqueKey(index)}
+                    >
                         <h2 className={styles.episode__seasonNumber}>
                             Season {item.number}
                         </h2>

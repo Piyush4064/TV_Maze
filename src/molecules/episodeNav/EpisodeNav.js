@@ -3,6 +3,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import PropTypes from "prop-types";
 
 import { reverseArray } from "./helper";
+import { getUniqueKey } from "../../helper";
 
 import styles from "./episodeNav.module.css";
 
@@ -11,10 +12,9 @@ function EpisodeNav({ seasons }) {
 
     return (
         <nav className={styles.episodeNav}>
-            {data.map((item) => {
+            {data.map((item, index) => {
                 return (
-                    // Active styling
-                    <AnchorLink href={"#S" + item.number}>
+                    <AnchorLink href={"#S" + item.number} key={getUniqueKey(index)}>
                         <span className={styles.episodeNav__Season}>
                             {"S" + item.number}
                         </span>

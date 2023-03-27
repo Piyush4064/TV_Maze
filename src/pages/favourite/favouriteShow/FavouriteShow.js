@@ -10,7 +10,6 @@ function FavouriteShow() {
     const favoriteShow = useSelector((state) => state.favouriteReducer.favouriteShows);
     const dispatch = useDispatch();
 
-
     const onFavourite = useCallback(
         (id) => {
             dispatch(FAVOURITE_SHOW(id));
@@ -18,13 +17,16 @@ function FavouriteShow() {
         [dispatch]
     );
 
- 
-  return (
-    <div className={styles.show}>
-        <Favourite favData={favoriteShow} onFavourite={onFavourite} favouriteOf={"Shows"} requestFrom="show"/>
-    </div>
-  )
-
+    return (
+        <div className={styles.show}>
+            <Favourite
+                favData={favoriteShow}
+                onFavourite={onFavourite}
+                favouriteOf={"Shows"}
+                requestFrom="show"
+            />
+        </div>
+    );
 }
 
-export default FavouriteShow;
+export default React.memo(FavouriteShow);

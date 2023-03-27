@@ -1,14 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Icon from "../../atom/icon";
 
 import styles from "./starRating.module.css";
 
-function StarRating({ rating = 0 }) {
+function StarRating({ rating }) {
     const fullStar = Math.floor(rating);
     const halfStar = (rating * 10) % 10 > 0 ? 1 : 0;
     const emptyStar = 10 - fullStar - halfStar;
-    console.log("Star rating");
+
     return (
         <div className={styles.starRating}>
             {[...Array(fullStar)].map((_, index) => {
@@ -40,4 +41,12 @@ function StarRating({ rating = 0 }) {
     );
 }
 
-export default StarRating;
+StarRating.propTypes = {
+    rating: PropTypes.number,
+};
+
+StarRating.defaultProps = {
+    rating: 0,
+};
+
+export default React.memo(StarRating);

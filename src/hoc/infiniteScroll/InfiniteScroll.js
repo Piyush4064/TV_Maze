@@ -3,18 +3,15 @@ import PropTypes from "prop-types";
 
 import SkeletonCardList from "../../organism/skeletonCardList";
 
-function InfiniteScroll({ requestFrom, onScrollData, ...props }) {
+function InfiniteScroll({ requestFrom, onScrollData, loaded, ...props }) {
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
-    // const [loaded, setLoaded] = useState(true);
 
     useEffect(() => {
         const fetchData = async (page) => {
-            // setLoaded(false);
             if (onScrollData(page) === null) {
                 setHasMore(false);
             }
-            // setLoaded(true);
         };
         fetchData(page);
     }, [page]);
@@ -36,7 +33,7 @@ function InfiniteScroll({ requestFrom, onScrollData, ...props }) {
     return (
         <div className="container">
             {props.children}
-            {hasMore && <SkeletonCardList />}
+            {!loaded && <SkeletonCardList />}
             {!hasMore && <h1>End Content</h1>}
         </div>
     );

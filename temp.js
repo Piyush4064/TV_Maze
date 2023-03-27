@@ -33,7 +33,6 @@ function showGenres(genres) {
     const allGenres = genres?.reduce(function (result, item) {
         return result + item + " ";
     }, "");
-    console.log(genres);
     return allGenres;
 }
 
