@@ -5,15 +5,15 @@ import FavouritePeople from "./favouritePeople";
 import FavouriteShow from "./favouriteShow";
 
 function PeopleIndex() {
-    return (
-        <Routes>
-            <Route path="fav">
-                <Route index element={<FavouriteShow />} />
-                <Route path="show" element={<FavouriteShow />} />
-                <Route path="people" element={<FavouritePeople />} />
-            </Route>
-        </Routes>
-    );
+  return (
+    <Routes>
+        <Route path="favourite">
+            <Route index element={<FavouriteShow />} />
+            <Route path="show" element={<FavouriteShow />} />
+            <Route path="people" element={<FavouritePeople />} />
+        </Route>
+    </Routes>
+  )
 }
 
 export default PeopleIndex;

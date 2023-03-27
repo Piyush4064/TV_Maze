@@ -16,16 +16,12 @@ function FavouritePeople() {
         },
         [dispatch]
     );
-
-    return (
-        <div className={styles.show}>
-            <Favourite
-                favData={favoritePeople}
-                onFavourite={onFavourite}
-                favouriteOf={"People"}
-            />
-        </div>
-    );
+   
+  return (
+    <div className={styles.show}>
+        <Favourite favData={favoritePeople} onFavourite={onFavourite} favouriteOf={"People"} requestFrom="people"/>
+    </div>
+  )
 }
 
 export default FavouritePeople;

@@ -19,6 +19,8 @@ function Card({
     item,
     requestFrom,
     onFavourite,
+    isFavourite  = false
+
 }) {
     const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -54,10 +56,14 @@ function Card({
                 (follow === false ? (
                     <div className={styles.card__footer}>
                         <Icon className="fa-regular fa-heart" onClick={onFavourite} />
+                        {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
+                        <Icon className="fa-solid fa-heart" onClick={onFavourite}/>
+                        }
+                        
                         {favourite && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
-                                <span>{item?.rating.average}</span>
+                                <span>{item?.rating?.average}</span>
                             </div>
                         )}
                     </div>
@@ -84,6 +90,7 @@ Card.propTypes = {
     item: PropTypes.object,
     requestFrom: PropTypes.string,
     onFavourite: PropTypes.func,
+    isFavourite : PropTypes.bool
 };
 
 Card.defaultProps = {
@@ -94,6 +101,7 @@ Card.defaultProps = {
     item: {},
     requestFrom: "",
     onFavourite: () => null,
+    isFavourite : true
 };
 
 export default React.memo(Card);

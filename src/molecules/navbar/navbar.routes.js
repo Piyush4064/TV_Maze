@@ -9,11 +9,11 @@ const navbarRoutes = [
     },
     {
         name: 'Favourite Shows',
-        link: '/fav/show'
+        link: '/favourite/show'
     },
     {
         name: 'Favourite People',
-        link: '/fav/people'
+        link: '/favourite/people'
     }
 ]
 
