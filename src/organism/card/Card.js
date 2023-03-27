@@ -7,6 +7,7 @@ import Icon from "../../atom/icon";
 import { replaceSpaceWithDash } from "../../helper";
 import loadingImage from "../../assets/images.png";
 import noImage from "../../assets/no-Image.png";
+import { trimName } from "./helper";
 
 import styles from "./card.module.css";
 
@@ -46,14 +47,9 @@ function Card({
 
             {showFooterName && (
                 <div>
-                    <div className={styles.card__movieName}>
-                        {item?.name?.length > 23
-                            ? item?.name?.slice(0, 23) + "..."
-                            : item?.name}
-                    </div>
+                    <div className={styles.card__movieName}>{trimName(item.name)}</div>
                 </div>
             )}
-
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>

@@ -6,3 +6,7 @@ export function getURL(URL, requestFrom, item, name) {
     }
     return URL;
 }
+
+export function trimName(name) {
+    return name?.length > 23 ? name?.slice(0, 23) + "..." : name;
+}

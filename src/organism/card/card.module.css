@@ -9,6 +9,10 @@
     overflow: hidden;
 }
 
+.card:hover {
+    transform: scale(1.05);
+}
+
 .card__movieName {
     color: #ffffffe3;
     padding: 0.3rem 0 0.5rem 0;
@@ -33,6 +37,9 @@
 
 .maxHeight {
     height: 100%;
+}
+
+.card__img:hover {
 }
 /* 
 .moviePosterCardFooter {

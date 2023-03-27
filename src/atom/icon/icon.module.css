@@ -1,10 +1,5 @@
-i {
-    color: #ffffffe3;
-    font-size: 2em;
-    margin: 0.4em;
-}
-
-i:hover {
-    transform: scale(1.1);
-    color: white;
+.icon:hover {
+    color: #0fb0a0;
+    cursor: pointer;
+    transform: scale(1.3);
 }

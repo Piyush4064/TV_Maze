@@ -1,8 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import styles from "./icon.module.css";
+
 function Icon({ className, onClick, styleColor }) {
-    return <i className={className} onClick={onClick} style={styleColor}></i>;
+    return (
+        <i
+            className={`${className} ${styles.icon}`}
+            onClick={onClick}
+            style={styleColor}
+        ></i>
+    );
 }
 
 Icon.propTypes = {
