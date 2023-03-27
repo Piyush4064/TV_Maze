@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 
 import SkeletonCardList from "../../organism/skeletonCardList";
 
-function InfiniteScroll({ requestFrom, onScrollData, loaded, ...props }) {
+function InfiniteScroll({ requestFrom, onScrollData, dataLoaded, ...props }) {
     const [hasMore, setHasMore] = useState(true);
     const [page, setPage] = useState(1);
 
@@ -33,7 +33,7 @@ function InfiniteScroll({ requestFrom, onScrollData, loaded, ...props }) {
     return (
         <div className="container">
             {props.children}
-            {!loaded && <SkeletonCardList />}
+            {!dataLoaded && hasMore && <SkeletonCardList />}
             {!hasMore && <h1>End Content</h1>}
         </div>
     );
@@ -42,11 +42,13 @@ function InfiniteScroll({ requestFrom, onScrollData, loaded, ...props }) {
 InfiniteScroll.propTypes = {
     requestFrom: PropTypes.string,
     onScrollData: PropTypes.func,
+    dataLoaded: PropTypes.bool,
 };
 
 InfiniteScroll.defaultProps = {
     requestFrom: "",
     onScrollData: () => null,
+    dataLoaded: false,
 };
 
 export default React.memo(InfiniteScroll);

@@ -29,24 +29,28 @@ function Card({
 
     return (
         <div className={styles.card}>
-            <Link to={URL}>
-                {imgLoaded ? null : (
+            <div className={styles.card__image__box}>
+                <Link to={URL}>
+                    {imgLoaded ? null : (
+                        <img
+                            src={loadingImage}
+                            alt="placeholder"
+                            className={styles.maxHeight}
+                        />
+                    )}
                     <img
-                        src={loadingImage}
-                        alt="placeholder"
-                        className={styles.maxHeight}
+                        src={item?.image?.medium || noImage}
+                        alt="movie"
+                        className={`${
+                            !showFooterName && !showFooterIcon
+                                ? styles.maxHeight
+                                : undefined
+                        }`}
+                        style={imgLoaded ? {} : { display: "none" }}
+                        onLoad={() => setImgLoaded(true)}
                     />
-                )}
-                <img
-                    src={item?.image?.medium || noImage}
-                    alt="movie"
-                    className={
-                        !showFooterName && !showFooterIcon ? styles.maxHeight : undefined
-                    }
-                    style={imgLoaded ? {} : { display: "none" }}
-                    onLoad={() => setImgLoaded(true)}
-                />
-            </Link>
+                </Link>
+            </div>
 
             {showFooterName && (
                 <div>

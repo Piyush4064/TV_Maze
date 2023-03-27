@@ -1,3 +1,7 @@
+.icon {
+    transition: all 0.3s;
+}
+
 .icon:hover {
     color: #0fb0a0;
     cursor: pointer;

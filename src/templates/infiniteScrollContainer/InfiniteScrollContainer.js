@@ -15,17 +15,17 @@ function InfiniteScrollContainer({
     favData,
 }) {
     const [items, setItems] = React.useState([]);
-    const [loaded, setLoaded] = useState(false);
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     const onScrollData = useCallback(
         (page) => {
-            setLoaded(false);
+            setDataLoaded(false);
             (async () => {
                 const data = await fetchGetRequest(url + page);
                 if (data === null) {
                     return null;
                 }
-                setLoaded(true);
+                setDataLoaded(true);
                 setItems([...items, ...data]);
             })();
         },
@@ -45,7 +45,7 @@ function InfiniteScrollContainer({
 
     return (
         <div className={styles.show}>
-            <InfiniteScroll requestFrom={requestFrom} onScrollData={onScrollData} loaded={loaded}>
+            <InfiniteScroll requestFrom={requestFrom} onScrollData={onScrollData} dataLoaded={dataLoaded}>
                 {items.map((item, index) => (
                     <div key={index}>
                         <Card

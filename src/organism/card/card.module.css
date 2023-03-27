@@ -7,10 +7,25 @@
     flex-grow: 1;
     border-radius: 0.5rem;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card__image__box {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+.card__image__box img {
+    max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.card__image__box:hover img {
+    transform: scale(1.1);
 }
 
 .card__movieName {
