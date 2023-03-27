@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 
 import InfiniteScrollContainer from "../../../templates/infiniteScrollContainer";
 import {URL} from "./constant"
@@ -12,9 +12,9 @@ function People() {
     const dispatch =  useDispatch();
     const favData = useSelector(state => state.favouriteReducer.favouritePeople);
 
-    const onFavourite = (id) => {
+    const onFavourite = useCallback((id) => {
        dispatch(FAVOURITE_PEOPLE(id)) 
-    }
+    }, [dispatch]);
 
     return (
         <div className={styles.people}>

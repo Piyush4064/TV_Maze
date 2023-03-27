@@ -4,21 +4,23 @@ import PropTypes from "prop-types";
 
 import { getURL } from "./helper";
 import Icon from "../../atom/icon";
-import { IMG_PLACEHOLDER } from "./constant";
 import { replaceSpaceWithDash } from "../../helper";
-import localStorageImage from "../../assets/images.png";
+import loadingImage from "../../assets/images.png";
+import noImage from "../../assets/no-Image.png";
+import { trimName } from "./helper";
 
 import styles from "./card.module.css";
 
 function Card({
-    showFooterIcon = true,
-    follow = false,
-    favourite = true,
-    showFooterName = true,
+    showFooterIcon,
+    follow,
+    favourite,
+    showFooterName,
     item,
     requestFrom,
     onFavourite,
     isFavourite  = false
+
 }) {
     const name = replaceSpaceWithDash(item?.name);
     const [imgLoaded, setImgLoaded] = useState(false);
@@ -31,13 +33,13 @@ function Card({
             <Link to={URL}>
                 {imgLoaded ? null : (
                     <img
-                        src={localStorageImage}
+                        src={loadingImage}
                         alt="placeholder"
                         className={styles.maxHeight}
                     />
                 )}
                 <img
-                    src={item?.image?.medium || IMG_PLACEHOLDER}
+                    src={item?.image?.medium || noImage}
                     alt="movie"
                     className={!showFooterName && !showFooterIcon && styles.maxHeight}
                     style={imgLoaded ? {} : { display: "none" }}
@@ -47,20 +49,17 @@ function Card({
 
             {showFooterName && (
                 <div>
-                    <div className={styles.card__movieName}>
-                        {item?.name?.length > 23
-                            ? item?.name?.slice(0, 23) + "..."
-                            : item?.name}
-                    </div>
+                    <div className={styles.card__movieName}>{trimName(item.name)}</div>
                 </div>
             )}
-
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
+                        <Icon className="fa-regular fa-heart" onClick={onFavourite} />
                         {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
                         <Icon className="fa-solid fa-heart" onClick={onFavourite}/>
                         }
+                        
                         {favourite && (
                             <div>
                                 <Icon className="fa-regular fa-star " />
@@ -70,7 +69,10 @@ function Card({
                     </div>
                 ) : (
                     <div className={styles.card__footer}>
-                        <span className={styles.moviePosterCardFooter}onClick={onFavourite} >
+                        <span
+                            className={styles.moviePosterCardFooter}
+                            onClick={onFavourite}
+                        >
                             <Icon className="fa-solid fa-heart" />
                             <span>Follow</span>
                         </span>
@@ -98,6 +100,7 @@ Card.defaultProps = {
     showFooterName: true,
     item: {},
     requestFrom: "",
+    onFavourite: () => null,
     isFavourite : true
 };
 

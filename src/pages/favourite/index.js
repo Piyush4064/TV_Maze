@@ -1,9 +1,8 @@
-import React from 'react';
-import { Route, Routes} from 'react-router-dom';
-import FavouriteShow from './favouriteShow/FavouriteShow';
-import FavouritePeople from './favouritePeople/FavouritePeople';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
-
+import FavouritePeople from "./favouritePeople";
+import FavouriteShow from "./favouriteShow";
 
 function PeopleIndex() {
   return (

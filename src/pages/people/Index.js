@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes} from 'react-router-dom';
-import People from './people/People';
-import PeopleInfo from './peopleInfo/PeopleInfo';
 
+import People from './people';
+import PeopleInfo from './peopleInfo';
 
 function PeopleIndex() {
   return (

@@ -10,12 +10,12 @@ function EpisodeNav({ seasons }) {
     let data = useMemo(() => reverseArray(seasons), [seasons]);
 
     return (
-        <nav className={styles.navBarEpisode}>
+        <nav className={styles.episodeNav}>
             {data.map((item) => {
                 return (
                     // Active styling
                     <AnchorLink href={"#S" + item.number}>
-                        <span className={styles.navBarEpisode__Season}>
+                        <span className={styles.episodeNav__Season}>
                             {"S" + item.number}
                         </span>
                     </AnchorLink>

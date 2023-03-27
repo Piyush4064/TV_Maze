@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import IconWithLink from "../iconWithLink";
 
 import styles from "./combinedIcons.module.css";
 
-function CombinedIcons() {
+function CombinedIcons({ stylePara }) {
     return (
-        <div className={styles.socailMediaIcon}>
-            <p>Share this on:</p>
+        <div className={styles.combinedIcons}>
+            <p style={stylePara}>Share this on:</p>
             <IconWithLink
                 className="fa-brands fa-facebook"
                 link="https://www.facebook.com/"
@@ -27,5 +28,13 @@ function CombinedIcons() {
         </div>
     );
 }
+
+CombinedIcons.propTypes = {
+    requestFrom: PropTypes.object,
+};
+
+CombinedIcons.defaultProps = {
+    requestFrom: {},
+};
 
 export default React.memo(CombinedIcons);

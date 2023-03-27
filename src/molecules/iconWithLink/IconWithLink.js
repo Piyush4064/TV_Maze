@@ -8,7 +8,7 @@ import styles from "./iconWithLink.module.css";
 
 function IconWithLink({ className, link }) {
     return (
-        <Link to={link} className={styles.iconLink}>
+        <Link to={link} className={styles.iconWithLink}>
             <Icon className={className} />
         </Link>
     );

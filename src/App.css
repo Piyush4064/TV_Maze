@@ -1,5 +1,8 @@
 .App {
     background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -35,5 +38,4 @@ a {
 
 img {
     width: 100%;
-    border-radius: 0.5rem;
 }

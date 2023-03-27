@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import { fetchGetRequest } from "../../../api/api";
 import EpisodeNav from "../../../molecules/episodeNav";
 import ShowDetails from "../../../templates/showDetails";
 import Table from "../../../organism/table";
-import { useParams } from "react-router-dom";
 
 import styles from "./episode.module.css";
 

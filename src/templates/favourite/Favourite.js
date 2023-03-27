@@ -1,16 +1,24 @@
 import React from "react";
+
+import { useNavigate } from "react-router-dom";
 import Card from "../../organism/card";
+import FavouritePlaceholder from "../../molecules/favouritePlaceholder";
 
 import styles from "./favourite.module.css";
 
-function FavouriteShow({ favData, onFavourite, favouriteOf ,requestFrom}) {
+
+function Favourite({ favData, onFavourite, favouriteOf ,requestFrom}}) {
+    const navigate = useNavigate();
+
+
 
 
     return (
         <div className={styles.favorite}>
             <h1 className={styles.favorite__title}>Favourite {favouriteOf}</h1>
             <div className="container">
-                {favData.map((item) => (
+                {favData.length > 0 ? (
+                   favData.map((item) => (
                         <Card
                             item={item}
                             key={item.id}
@@ -20,10 +28,14 @@ function FavouriteShow({ favData, onFavourite, favouriteOf ,requestFrom}) {
                             follow={false}
                             isFavourite = {true}
                         />
-                ))}
+                    )
+                ) : (
+                    <FavouritePlaceholder favouritePlaceholderFor={favouriteOf} />
+                )}
+
             </div>
         </div>
     );
 }
 
-export default FavouriteShow;
+export default Favourite;

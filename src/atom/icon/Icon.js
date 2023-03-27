@@ -1,18 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Icon({ className, onClick, styleColor = {} }) {
-    return <i className={className} onClick={onClick} style={styleColor}></i>;
+import styles from "./icon.module.css";
+
+function Icon({ className, onClick, styleColor }) {
+    return (
+        <i
+            className={`${className} ${styles.icon}`}
+            onClick={onClick}
+            style={styleColor}
+        ></i>
+    );
 }
 
 Icon.propTypes = {
     className: PropTypes.string,
     onClick: PropTypes.func,
+    styleColor: PropTypes.object,
 };
 
 Icon.defaultProps = {
     className: "",
     onClick: () => null,
+    styleColor: {},
 };
 
 export default React.memo(Icon);

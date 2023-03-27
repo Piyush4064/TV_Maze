@@ -1,13 +1,15 @@
-import "./App.css";
-import Header from "./organism/header";
-import Navbar from "./molecules/navbar";
-import Breadcrumb from "./molecules/breadcrumb";
-import Show from "./pages/shows";
-import Shows from "./pages/shows/shows/Shows";
-import People from "./pages/people/Index";
-import Favourite from './pages/favourite';
 import { Route, Routes } from "react-router-dom";
 
+import Breadcrumb from "./molecules/breadcrumb";
+import Favourite from "./pages/favourite";
+import Footer from "./molecules/footer";
+import Header from "./organism/header";
+import Navbar from "./molecules/navbar";
+import People from "./pages/people";
+import Show from "./pages/shows";
+import Shows from "./pages/shows/shows";
+
+import "./App.css";
 
 function App() {
     return (
@@ -16,11 +18,12 @@ function App() {
             <Navbar />
             <Breadcrumb />
             <Routes>
-                <Route path="/" element={<Shows />}/>
+                <Route path="/" element={<Shows />} />
             </Routes>
             <Show />
             <People />
             <Favourite />
+            <Footer />
         </div>
     );
 }

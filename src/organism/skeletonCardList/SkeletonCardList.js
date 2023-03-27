@@ -7,14 +7,9 @@ import styles from "./skeletonCardList.module.css";
 function SkeletonCardList() {
     return (
         <div className={styles.skeletonCardList}>
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
+            {[...Array(8)].map((_, index) => {
+                return <SkeletonCard key={index} />;
+            })}
         </div>
     );
 }
