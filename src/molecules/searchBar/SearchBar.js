@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback} from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -11,6 +11,7 @@ import { replaceSpaceWithDash } from "../../helper";
 
 function SearchBar({onSearch, searchData, ...props}) {
     const navigate = useNavigate();
+   
 
     const onSearchHandler = useCallback(
         (event) => {
@@ -31,6 +32,7 @@ function SearchBar({onSearch, searchData, ...props}) {
     return (
         <div className="searchbar">
             <Input
+              
                 type="searchinput"
                 placeholder="search shows and people..."
                 onChange={(event) =>  onSearchShow(event)}

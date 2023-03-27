@@ -61,4 +61,12 @@
     .searchbtn{
          width: 20vw;
     }
+
+    .navbarbtn{
+        width: 100%;
+    }
+    
+    .navbarActive{
+        width: 100%;
+    }
  }

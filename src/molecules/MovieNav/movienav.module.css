@@ -2,3 +2,9 @@
     display: flex;
     margin-left: 0.5rem;
 }
+
+@media screen and (max-width: 760px) {
+    .movienav{
+      flex-direction: column;
+    }
+}
