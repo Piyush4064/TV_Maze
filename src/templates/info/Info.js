@@ -44,6 +44,7 @@ function Info({ item, summary = DESCRIPTION, flashCardDetails, flashCardFor }) {
             item={item} 
             onFavourite={() => onFavourite(item)}
             isStarShow={false}
+            isFavourite = {false}
             />
             <Description summary={summary} />
             <FlashCard
