@@ -55,7 +55,7 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
-                        <Icon className="fa-regular fa-heart" onClick={onFavourite} />
+                      
                         {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
                         <Icon className="fa-solid fa-heart" onClick={onFavourite}/>
                         }

@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../../atom/button";
 
@@ -9,6 +9,9 @@ import styles from "./navbar.module.css";
 
 function Navbar() {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    console.log(location);
 
     const onNavClick = useCallback((link) => {
         navigate(link);
@@ -20,7 +23,7 @@ function Navbar() {
                 {navbarRoutes.map((nav) => (
                     <Button
                         key={nav.name}
-                        type="navbarbtn"
+                        type={location.pathname === nav.link ? 'navbarActive' : 'navbarbtn'}
                         onClick={() => onNavClick(nav.link)}
                     >
                         {nav.name}

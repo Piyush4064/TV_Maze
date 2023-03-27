@@ -1,16 +1,13 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
 import Card from "../../organism/card";
 import FavouritePlaceholder from "../../molecules/favouritePlaceholder";
 
 import styles from "./favourite.module.css";
 
 
-function Favourite({ favData, onFavourite, favouriteOf ,requestFrom}}) {
-    const navigate = useNavigate();
-
-
+function Favourite({ favData, onFavourite, favouriteOf ,requestFrom}) {
+   
 
 
     return (
@@ -29,7 +26,7 @@ function Favourite({ favData, onFavourite, favouriteOf ,requestFrom}}) {
                             isFavourite = {true}
                         />
                     )
-                ) : (
+                )) : (
                     <FavouritePlaceholder favouritePlaceholderFor={favouriteOf} />
                 )}
 
