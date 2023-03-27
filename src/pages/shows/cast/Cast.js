@@ -5,6 +5,7 @@ import Card from "../../../organism/card";
 import CastInfo from "../../../molecules/castInfo";
 import { fetchGetRequest } from "../../../api/api";
 import ShowDetails from "../../../templates/showDetails";
+import { getUniqueKey } from "../../../helper";
 
 import styles from "./cast.module.css";
 
@@ -21,12 +22,13 @@ function Cast() {
             setCast(data);
         })();
     }, [URL, id]);
+
     return (
         <ShowDetails showTitle={name}>
             <div className={styles.cast}>
-                {cast.map((item) => {
+                {cast.map((item, index) => {
                     return (
-                        <div className={styles.cast__detail}>
+                        <div className={styles.cast__detail} key={getUniqueKey(index)}>
                             <Card
                                 showFooterIcon={false}
                                 showFooterName={false}

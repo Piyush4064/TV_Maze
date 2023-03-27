@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 
 import Card from "../../organism/card";
@@ -15,14 +15,17 @@ function InfiniteScrollContainer({
     favData,
 }) {
     const [items, setItems] = React.useState([]);
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     const onScrollData = useCallback(
         (page) => {
+            setDataLoaded(false);
             (async () => {
                 const data = await fetchGetRequest(url + page);
                 if (data === null) {
                     return null;
                 }
+                setDataLoaded(true);
                 setItems([...items, ...data]);
             })();
         },
@@ -42,8 +45,7 @@ function InfiniteScrollContainer({
 
     return (
         <div className={styles.show}>
-            {/* <Filter data={dummyData} /> */}
-            <InfiniteScroll requestFrom={requestFrom} onScrollData={onScrollData}>
+            <InfiniteScroll requestFrom={requestFrom} onScrollData={onScrollData} dataLoaded={dataLoaded}>
                 {items.map((item, index) => (
                     <div key={index}>
                         <Card

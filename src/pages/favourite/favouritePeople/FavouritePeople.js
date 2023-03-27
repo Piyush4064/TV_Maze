@@ -24,4 +24,4 @@ function FavouritePeople() {
   )
 }
 
-export default FavouritePeople;
+export default React.memo(FavouritePeople);

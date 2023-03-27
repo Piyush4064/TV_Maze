@@ -5,6 +5,7 @@ import Card from "../../../organism/card";
 import { fetchGetRequest } from "../../../api/api";
 import SeasonInfo from "../../../molecules/seasonInfo";
 import ShowDetails from "../../../templates/showDetails";
+import { getUniqueKey } from "../../../helper";
 
 import styles from "./season.module.css";
 
@@ -25,8 +26,8 @@ function Season() {
 
     return (
         <ShowDetails showTitle={name}>
-            {seasons.map((item) => (
-                <div className={styles.season}>
+            {seasons.map((item, index) => (
+                <div className={styles.season} key={getUniqueKey(index)}>
                     <Card showFooterName={false} showFooterIcon={false} item={item} />
                     <SeasonInfo item={item} />
                 </div>

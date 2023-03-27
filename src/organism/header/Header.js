@@ -16,7 +16,6 @@ function Header() {
     }, [location.pathname]);
 
     const onSearch = useCallback(async(event) => {
-        //api will be called here
         const searchInput  = event.target.value;
         const data = await fetchGetRequest(`https://api.tvmaze.com/search/shows?q=${searchInput}`);
         setSearchData(data);

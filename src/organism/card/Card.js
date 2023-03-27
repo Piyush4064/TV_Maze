@@ -30,22 +30,28 @@ function Card({
 
     return (
         <div className={styles.card}>
-            <Link to={URL}>
-                {imgLoaded ? null : (
+            <div className={styles.card__image__box}>
+                <Link to={URL}>
+                    {imgLoaded ? null : (
+                        <img
+                            src={loadingImage}
+                            alt="placeholder"
+                            className={styles.maxHeight}
+                        />
+                    )}
                     <img
-                        src={loadingImage}
-                        alt="placeholder"
-                        className={styles.maxHeight}
+                        src={item?.image?.medium || noImage}
+                        alt="movie"
+                        className={`${
+                            !showFooterName && !showFooterIcon
+                                ? styles.maxHeight
+                                : undefined
+                        }`}
+                        style={imgLoaded ? {} : { display: "none" }}
+                        onLoad={() => setImgLoaded(true)}
                     />
-                )}
-                <img
-                    src={item?.image?.medium || noImage}
-                    alt="movie"
-                    className={!showFooterName && !showFooterIcon && styles.maxHeight}
-                    style={imgLoaded ? {} : { display: "none" }}
-                    onLoad={() => setImgLoaded(true)}
-                />
-            </Link>
+                </Link>
+            </div>
 
             {showFooterName && (
                 <div>
@@ -55,6 +61,14 @@ function Card({
             {showFooterIcon &&
                 (follow === false ? (
                     <div className={styles.card__footer}>
+                        {isFavourite === false ? (
+                            <Icon className="fa-regular fa-heart" onClick={onFavourite} />
+                        ) : (
+                            <Icon className="fa-solid fa-heart" onClick={onFavourite} />
+                        )}
+
+                        {favourite && (
+
                       
                         {isFavourite === false ? <Icon className="fa-regular fa-heart" onClick={onFavourite}/> :
                         <Icon className="fa-solid fa-heart" onClick={onFavourite}/>

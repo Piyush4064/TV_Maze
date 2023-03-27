@@ -10,12 +10,10 @@ import styles from "./filter.module.css";
 
 function FilterWindow(props) {
     const onChange = (event) => {
-        console.log(event.target);
     };
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
     };
 
     return (

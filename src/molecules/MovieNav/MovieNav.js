@@ -23,7 +23,6 @@ function MovieNav() {
     const getActiveLink = useCallback(
         (link) => {
             const locationPath = "/show/" + id + "/" + name + link;
-            console.log(locationPath);
 
             if (locationPath === location.pathname) {
                 return true;

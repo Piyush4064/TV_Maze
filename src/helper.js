@@ -3,8 +3,13 @@ export function replaceSpaceWithDash(str) {
 }
 
 export function isNumeric(str) {
-    return !isNaN(str) && !isNaN(parseFloat(str))
+    return !isNaN(str) && !isNaN(parseFloat(str));
 }
+
+export function getUniqueKey(index = 0) {
+    return new Date().valueOf() + index + Math.random() * 100;
+}
+
 
 export const isElementPresent = (favData, item) => {
     const follow = favData.filter((fav) => fav.id === item.id);
@@ -15,3 +20,4 @@ export const isElementPresent = (favData, item) => {
 
     return true;
 };
+
